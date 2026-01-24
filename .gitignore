@@ -1,0 +1,10 @@
+# Ignore development preview utilities in production
+/dev/
+
+# Node modules and lock
+node_modules/
+package-lock.json
+
+# Python virtual envs
+venv/
+__pycache__/

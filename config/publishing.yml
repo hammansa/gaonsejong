@@ -1,0 +1,10 @@
+publishing:
+  timezone: "Asia/Seoul"
+  runs_per_day: 3
+  run_times:
+    - "07:30"
+    - "13:30"
+    - "19:30"
+  articles_per_day_min: 3
+  articles_per_day_max: 5
+  global_ratio_target: "0.60-0.70"

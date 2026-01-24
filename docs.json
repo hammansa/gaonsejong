@@ -1,0 +1,21 @@
+{
+  "categories": ["All", "Strategy", "Roadmap", "IR", "MediaKit"],
+  "docs": [
+    {
+      "id": "strategy-2030",
+      "category": "Strategy",
+      "title": "Korea LEO Satellite Strategy 2030",
+      "desc": "2030 전략 요약/핵심 추진전략",
+      "date": "2026-01-24",
+      "file": "assets/docs/sample1.pdf"
+    },
+    {
+      "id": "roadmap-6g-sovereignty",
+      "category": "Roadmap",
+      "title": "Korea LEO Satellite & 6G Sovereignty Roadmap",
+      "desc": "6G 주권/표준/보안 로드맵 핵심",
+      "date": "2026-01-24",
+      "file": "assets/docs/sample2.pdf"
+    }
+  ]
+}

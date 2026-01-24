@@ -1,0 +1,4 @@
+## No external Python packages required
+# This project uses only the Python standard library for the classifier
+# (see classify_and_dedup.py). Leave this file empty for tooling that
+# expects a requirements.txt, or add runtime-specific packages here.

@@ -1,0 +1,9 @@
+safety:
+  citation_required: true
+  hard_block_topics:
+    - "insider trading"
+    - "personal data leakage"
+    - "unverified rumors"
+  soft_block_keywords:
+    - "확정"
+    - "단독"

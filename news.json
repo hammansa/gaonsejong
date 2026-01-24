@@ -1,0 +1,82 @@
+{
+  "site": {
+    "name": "가온세종",
+    "slogan": "위성·6G 산업을 잇고, 다음 세상을 밝히다"
+  },
+  "articles": [
+    {
+      "id": "https://spacenews.com/?p=568637",
+      "category": "�ӽ�",
+      "status": "�ӽ�",
+      "title": "Former astronaut joins Vast as Haven-1 moves into integration",
+      "excerpt": "Commercial space station developer Vast has hired another former NASA astronaut as the company delays the launch of its first station.\nThe post Former astronaut joins Vast as Haven-1 moves into integration appeared first on SpaceNews.",
+      "date": "2026-01-24",
+      "readTime": "2��",
+      "bodyHtml": "<h2>���</h2><p>�ڵ� ������ ���� �����Դϴ�.</p>",
+      "sources": [
+        {
+          "name": "SpaceNews",
+          "url": "https://spacenews.com/former-astronaut-joins-vast-as-haven-1-moves-into-integration/",
+          "type": "press"
+        }
+      ],
+      "official_docs": [],
+      "youtube_links": [],
+      "tags": [],
+      "category_detected": "Policy"
+    },
+    {
+      "id": "https://spacenews.com/?p=568668",
+      "category": "�ӽ�",
+      "status": "�ӽ�",
+      "title": "Space Beyond lines up 2027 SpaceX launch for low-cost memorial cubesat",
+      "excerpt": "Florida-based Space Beyond plans to start building its first memorial spacecraft next week after booking a launch on SpaceX��s October 2027 rideshare mission.\nThe post Space Beyond lines up 2027 SpaceX launch for low-cost memorial cubesat appeared first on SpaceNews.",
+      "date": "2026-01-24",
+      "readTime": "2��",
+      "bodyHtml": "<h2>���</h2><p>�ڵ� ������ ���� �����Դϴ�.</p>",
+      "sources": [
+        {
+          "name": "SpaceNews",
+          "url": "https://spacenews.com/space-beyond-lines-up-2027-spacex-launch-for-low-cost-memorial-cubesat/",
+          "type": "press"
+        }
+      ],
+      "official_docs": [],
+      "youtube_links": [],
+      "tags": [
+        "SpaceX"
+      ],
+      "category_detected": "Benchmarking"
+    },
+    {
+      "id": "press-piphone-overview",
+      "category": "보도자료",
+      "status": "준비중",
+      "title": "파이폰 사업 개요: 위성통신 시장에서의 포지셔닝",
+      "excerpt": "서비스 정의, 타깃 산업, 파트너십 구조를 ‘한 페이지’로 정리합니다.",
+      "date": "2026-01-24",
+      "readTime": "3분",
+      "bodyHtml": "<h2>개요</h2><p>본 콘텐츠는 1차 오픈용 템플릿입니다. 실제 자료 업로드 시 상세 내용을 업데이트하세요.</p><h3>핵심 요약</h3><ul><li>위성통신 기반 서비스 포지셔닝 요약</li><li>시장/정책 변화에 따른 기회 요인</li><li>제휴/광고/IR 커뮤니케이션 구조</li></ul><h3>다음 액션</h3><p>자료실에 PDF(백서/로드맵)를 업로드하고, 기사 본문에서 직접 링크하세요.</p>"
+    },
+    {
+      "id": "feature-6g-ntn-sovereignty",
+      "category": "기획",
+      "status": "준비중",
+      "title": "6G·NTN: 표준과 보안이 산업을 바꾼다",
+      "excerpt": "주파수/표준/보안/공급망 이슈를 기업형 IR 관점으로 재구성합니다.",
+      "date": "2026-01-24",
+      "readTime": "5분",
+      "bodyHtml": "<h2>왜 지금 6G·NTN인가</h2><p>표준/보안/주권은 기술 이슈를 넘어 ‘산업 구조’를 결정합니다.</p><h3>핵심 요약</h3><ul><li>표준 경쟁의 구조와 로드맵</li><li>보안/암호/공급망 리스크</li><li>기업 관점의 대응 포인트</li></ul>"
+    },
+    {
+      "id": "industry-leo-market-map",
+      "category": "산업",
+      "status": "준비중",
+      "title": "LEO 위성통신 동향 브리핑: 글로벌 플레이어 지도",
+      "excerpt": "시장 구조, 단말/칩, 지상망 연동 트렌드를 빠르게 훑습니다.",
+      "date": "2026-01-24",
+      "readTime": "4분",
+      "bodyHtml": "<h2>시장 지도(템플릿)</h2><p>주요 플레이어/기술 스택/상용화 구간을 카드형으로 정리해두는 형태가 운영에 좋습니다.</p><h3>핵심 요약</h3><ul><li>네트워크/단말/칩/지상망 4요소</li><li>규제(주파수/궤도) 체크포인트</li><li>산업 제휴/투자 관점 포인트</li></ul>"
+    }
+  ]
+}

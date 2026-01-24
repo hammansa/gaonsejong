@@ -1,0 +1,9 @@
+youtube_channels:
+  - channel_name: "CSIS"
+    channel_url: "https://www.youtube.com/user/CSISVideos"
+    type: "thinktank"
+    language: "en"
+
+  - channel_name: "TelecomTV"
+    channel_url: "https://www.youtube.com/user/TelecomTV"
+    type: "media"

@@ -1,0 +1,16 @@
+sources:
+  - name: SpaceNews
+    url: https://spacenews.com/
+    rss: https://spacenews.com/feed/
+    type: press
+    country: US
+  - name: NASA News
+    url: https://www.nasa.gov/
+    rss: https://www.nasa.gov/feed/
+    type: regulator
+    country: US
+  - name: 정책브리핑
+    url: https://www.korea.kr/
+    rss: https://www.korea.kr/etc/rss.do
+    type: official
+    country: KR

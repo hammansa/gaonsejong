@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Newsroom | 가온세종</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Newsroom | 가온세종" />
+  <meta property="og:description" content="news.json 기반으로 전체 기사 목록을 제공합니다." />
+  <meta property="og:image" content="assets/hero-space-light.jpg" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- 배경 -->
+  <div class="bg-ambient" aria-hidden="true"></div>
+  <div class="universe" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="nebula"></div>
+    <div class="grid"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- 헤더 -->
+  <header class="site-header" id="top">
+    <div class="header-inner container">
+      <a class="brand" href="index.html#top">
+        <img class="brand-mark" src="assets/logo.png" alt="가온세종 로고" />
+        <span class="brand-text">GAON SEJONG</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="newsroom.html">Newsroom</a>
+        <a href="docs.html">Docs</a>
+        <a href="about.html">Business·IR</a>
+      </nav>
+
+      <a class="btn btn-kakao" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener noreferrer">
+        카카오 문의
+      </a>
+    </div>
+  </header>
+
+  <!-- 본문 -->
+  <main class="container section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Newsroom</p>
+        <h1 class="section-title" style="margin-top:6px;">전체 기사</h1>
+        <p class="section-sub">news.json 기반으로 자동 렌더링됩니다.</p>
+      </div>
+
+      <div class="glass" style="padding:12px 12px; min-width:min(560px,100%);">
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <input id="q" placeholder="검색 (제목/요약)" style="flex:1; min-width:180px; height:40px; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:rgba(10,14,30,.25); color:var(--txt); padding:0 12px; outline:none;">
+          <select id="cat" style="height:40px; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:rgba(10,14,30,.25); color:var(--txt); padding:0 10px; outline:none;">
+            <option value="All">All</option>
+          </select>
+          <span id="count" class="muted" style="align-self:center;">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="state" class="glass" style="padding:16px; margin-bottom:14px;">
+      <p class="mini-desc" style="margin:0; color:var(--muted);">목록을 불러오는 중입니다…</p>
+    </div>
+
+    <div id="newsGrid" class="news-grid"></div>
+
+    <div id="empty" class="glass" style="padding:16px; margin-top:14px; display:none;">
+      <p class="mini-desc" style="margin:0; color:var(--muted);">조건에 맞는 기사가 없습니다.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="muted">© 2026 GAON SEJONG</div>
+      <div class="muted">발행인 박상현 · 지주회사 누리온홀딩스</div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = (s)=>document.querySelector(s);
+    const esc = (s)=> (s ?? "").toString().replace(/[&<>"']/g, m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[m]));
+
+    function card(a){
+      return `
+        <a class="glass news-card" href="article.html?id=${encodeURIComponent(a.id)}">
+          <span class="news-tag">${esc(a.category || "기사")}</span>
+          <div class="news-title">${esc(a.title || "제목 없음")}</div>
+          <div class="news-meta">
+            <span>${esc(a.date || "—")}</span>
+            <span>${esc(a.readTime ? ("읽는 시간 " + a.readTime) : "읽는 시간 —")}</span>
+            ${a.status ? `<span>· ${esc(a.status)}</span>` : ``}
+          </div>
+          <p class="news-excerpt">${esc(a.excerpt || "")}</p>
+        </a>`;
+    }
+
+    let ARTICLES = [];
+
+    function buildCats(){
+      const cats = new Set(["All"]);
+      ARTICLES.forEach(a => cats.add(a.category || "기사"));
+      $("#cat").innerHTML = Array.from(cats).map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
+    }
+
+    function render(){
+      const q = ($("#q").value || "").trim().toLowerCase();
+      const cat = $("#cat").value;
+
+      const filtered = ARTICLES.filter(a=>{
+        const inCat = (cat === "All") || ((a.category || "기사") === cat);
+        const hay = ((a.title||"") + " " + (a.excerpt||"")).toLowerCase();
+        const inQ = (!q) || hay.includes(q);
+        return inCat && inQ;
+      });
+
+      $("#count").textContent = `${filtered.length}건`;
+      $("#newsGrid").innerHTML = filtered.map(card).join("");
+      $("#empty").style.display = filtered.length ? "none" : "block";
+
+      const st = $("#state");
+      if(st) st.style.display = "none";
+    }
+
+    async function main(){
+      try{
+        // news.json은 현재 정상 응답 구조(site + articles). [Source](https://gsnews.netlify.app/news.json)
+        const res = await fetch("news.json", { cache: "no-store" });
+        if(!res.ok) throw new Error("news.json fetch failed: " + res.status);
+
+        const data = await res.json();
+        ARTICLES = (data && data.articles) ? data.articles : [];
+
+        buildCats();
+        render();
+
+        $("#q").addEventListener("input", render);
+        $("#cat").addEventListener("change", render);
+
+      }catch(e){
+        const st = $("#state");
+        if(st){
+          st.innerHTML = `
+            <p class="mini-desc" style="margin:0; color:var(--muted);">
+              news.json을 불러오지 못했습니다. 루트에 <code>news.json</code>이 있는지 확인하세요.
+            </p>`;
+        }
+        $("#newsGrid").innerHTML = "";
+        $("#empty").style.display = "none";
+        $("#count").textContent = "—";
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>

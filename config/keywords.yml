@@ -1,0 +1,34 @@
+keywords:
+  core:
+    - "저궤도 위성통신 기술개발사업"
+    - "6G 통신 주권"
+    - "위성망 자립화"
+    - "뉴스페이스(New Space)"
+    - "NTN"
+    - "전파진흥 로드맵"
+    - "3GPP Release 19"
+    - "3GPP Release 21"
+    - "Regenerative Payload"
+    - "Beam Hopping"
+
+  vertical:
+    defense:
+      - "국가 안보 위성망"
+      - "방산"
+    maritime:
+      - "maritime"
+      - "자율운항 선박"
+    aviation:
+      - "aviation"
+      - "UAM"
+    disaster:
+      - "재난용 위성 통신"
+
+  benchmarking:
+    - "Starlink"
+    - "SpaceX"
+    - "Direct to Cell"
+
+  korea_specific:
+    - "과기정통부"
+    - "KASA"
