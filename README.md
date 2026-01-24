@@ -30,4 +30,4 @@ nurion holdings
 3. **배포**: GitHub 저장소에 Push하면 연결된 Netlify를 통해 자동으로 실시간 반영됩니다.
 
 ---
-© 2026 GAON SEJONG. 발행인 박상현 · 지주회사 누리온홀딩스
+© 2026 GAON SEJONG. 발행인 박상현 · 지주회사 (주)누리온홀딩스
