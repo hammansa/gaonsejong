@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>가온세종 | 위성·6G·AI 인프라 전문</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="가온세종" />
+  <meta property="og:description" content="위성·6G·AI 정책과 산업의 연결을 빠르고 정확하게 정리해 전합니다." />
+  <meta property="og:image" content="assets/hero-space-light.jpg" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="page-home">
+  <!-- Home video (홈에서만 활성화: style.css의 .page-home .space-video) -->
+  <div class="space-video" aria-hidden="true">
+    <video class="space-video__el" autoplay muted playsinline loop preload="auto" poster="assets/hero-space-light.jpg">
+      <source src="assets/space-warp.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Universe background system (style.css의 .universe 레이어) -->
+  <div class="universe" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="nebula"></div>
+    <div class="grid"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="header-inner container">
+      <a class="brand" href="index.html#top">
+        <img class="brand-mark" src="assets/logo.png" alt="가온세종 로고" />
+        <span class="brand-text">GAON SEJONG</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="newsroom.html">Newsroom</a>
+        <a href="docs.html">Docs</a>
+        <a href="about.html">Business·IR</a>
+      </nav>
+
+      <a class="btn btn-kakao" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener noreferrer">
+        카카오 문의
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="container">
+    <section class="hero">
+      <div class="glass hero-inner" style="position:relative; overflow:hidden;">
+        <div class="hero-bg" aria-hidden="true"></div>
+
+        <p class="eyebrow">위성·6G·AI 인프라 전문</p>
+        <h1 class="hero-title">위성·6G 산업을 잇고,<br/>다음 세상을 밝히다</h1>
+
+        <p class="hero-desc">
+          가온세종은 위성통신(LEO)·6G·AI 정책과 산업의 ‘연결’을 빠르고 정확하게 정리해 전합니다.
+          지금은 1차 오픈 단계이며, 뉴스룸은 곧 정식 발행을 시작합니다.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-xl" href="newsroom.html">뉴스룸 바로가기</a>
+          <a class="btn btn-outline btn-xl" href="docs.html">자료실 보기</a>
+          <a class="btn btn-kakao btn-xl" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener noreferrer">카카오 문의</a>
+        </div>
+
+        <div class="chips" aria-label="핵심 분야">
+          <span class="chip">LEO</span>
+          <span class="chip">6G</span>
+          <span class="chip">AI</span>
+          <span class="chip">기업형/IR 중심</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- What we do -->
+    <section class="section" id="overview">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Overview</p>
+          <h2 class="section-title">가온세종이 하는 일</h2>
+          <p class="section-sub">산업·정책·기술을 연결해, 실행 가능한 관점으로 정리합니다.</p>
+        </div>
+        <div>
+          <a class="btn btn-ghost" href="about.html">Business·IR 자세히</a>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="glass card">
+          <div class="card-title">산업 브리핑</div>
+          <p class="card-desc">위성/6G 시장, 투자, 파트너십을 빠르게 요약합니다.</p>
+        </div>
+        <div class="glass card">
+          <div class="card-title">정책·규제</div>
+          <p class="card-desc">주파수·궤도·보안·표준 이슈를 이해하기 쉽게 정리합니다.</p>
+        </div>
+        <div class="glass card">
+          <div class="card-title">기술 리포트</div>
+          <p class="card-desc">LEO·NTN·AI 네트워크 적용 관점의 기술 포인트를 제공합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- News preview (latest 6) -->
+    <section class="section" id="newsroom">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Newsroom</p>
+          <h2 class="section-title">최신 기사</h2>
+          <p class="section-sub">news.json 기반으로 자동 렌더링됩니다. 전체 목록은 Newsroom에서 확인하세요.</p>
+        </div>
+        <div>
+          <a class="btn btn-outline" href="newsroom.html">더보기 →</a>
+        </div>
+      </div>
+
+      <div id="newsGrid" class="news-grid"></div>
+
+      <div id="newsEmpty" class="glass" style="padding:16px; margin-top:14px; display:none;">
+        <p class="mini-desc" style="margin:0; color:var(--muted);">
+          아직 게시된 기사가 없습니다. Newsroom에서 업데이트를 확인해 주세요.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="glass contact">
+        <div class="section-head" style="margin-bottom:10px;">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 class="section-title">문의 (카카오 오픈채팅)</h2>
+            <p class="section-sub">문의 채널을 카카오로 단일화했습니다.</p>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-kakao btn-xl" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener noreferrer">카카오 문의하기</a>
+          <a class="btn btn-outline btn-xl" href="docs.html">자료실 보기</a>
+          <a class="btn btn-ghost btn-xl" href="about.html">Business·IR 안내</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="muted">© 2026 GAON SEJONG</div>
+        <div class="muted">발행인 박상현 · 지주회사 누리온홀딩스</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Latest 6 articles from news.json [Source](https://gsnews.netlify.app/news.json)
+    const esc = (s) => (s ?? "").toString().replace(/[&<>"']/g, m => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+    }[m]));
+
+    function card(a){
+      return `
+        <a class="glass news-card" href="article.html?id=${encodeURIComponent(a.id)}">
+          <span class="news-tag">${esc(a.category || "기사")}</span>
+          <div class="news-title">${esc(a.title || "제목 없음")}</div>
+          <div class="news-meta">
+            <span>${esc(a.date || "—")}</span>
+            <span>${esc(a.readTime ? ("읽는 시간 " + a.readTime) : "읽는 시간 —")}</span>
+            ${a.status ? `<span>· ${esc(a.status)}</span>` : ``}
+          </div>
+          <p class="news-excerpt">${esc(a.excerpt || "")}</p>
+        </a>`;
+    }
+
+    async function main(){
+      const grid = document.getElementById("newsGrid");
+      const empty = document.getElementById("newsEmpty");
+
+      try{
+        const res = await fetch("news.json", { cache:"no-store" });
+        if(!res.ok) throw new Error(res.status);
+        const data = await res.json();
+        const articles = (data && data.articles) ? data.articles : [];
+
+        const latest = articles.slice(0, 6);
+        grid.innerHTML = latest.map(card).join("");
+        empty.style.display = latest.length ? "none" : "block";
+      }catch(e){
+        grid.innerHTML = "";
+        empty.style.display = "block";
+      }
+    }
+    main();
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>기사 | 가온세종</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="기사 | 가온세종" />
+  <meta property="og:description" content="news.json 기반으로 기사 본문을 로드합니다." />
+  <meta property="og:image" content="assets/hero-space-light.jpg" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Background layers (style.css와 정합) -->
+  <div class="bg-ambient" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="index.html#top">
+        <!-- 로고는 사용자가 assets/logo.png로 리네임 완료했다고 하셨으니 그대로 사용 -->
+        <img class="brand-mark" src="assets/logo.png" alt="가온세종 로고" />
+        <span class="brand-text">GAON SEJONG</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#newsroom">뉴스룸</a>
+        <a href="docs.html">자료실</a>
+        <a href="index.html#contact">문의</a>
+      </nav>
+
+      <a class="btn btn-kakao" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener noreferrer">
+        카카오 문의
+      </a>
+    </div>
+  </header>
+
+  <main class="container section">
+    <article class="glass" style="padding:22px 18px;">
+      <p class="eyebrow" id="aTag">기사</p>
+
+      <h1 class="article-title" id="aTitle" style="margin:6px 0 10px;">기사 제목</h1>
+
+      <div class="news-meta" style="margin-bottom:14px;">
+        <span id="aDate">—</span>
+        <span id="aRead">읽는 시간 —</span>
+        <span id="aStatus"></span>
+      </div>
+
+      <p class="article-desc" id="aExcerpt" style="margin:0 0 18px; color:var(--muted);">
+        기사 요약
+      </p>
+
+      <div class="article-body" id="aBody"></div>
+
+      <!-- ✅ CTA는 여기 “1번만” 고정 출력 (중복 제거의 핵심) -->
+      <div class="article-cta" style="margin-top:18px;">
+        <div class="glass" style="padding:14px 14px;">
+          <p class="mini-desc" style="margin:0 0 10px; color:var(--muted);">
+            더 자세한 자료/제휴/IR 문의는 카카오 오픈채팅으로 연결됩니다.
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-kakao btn-lg" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener noreferrer">
+              카카오 문의
+            </a>
+            <a class="btn btn-outline btn-lg" href="docs.html">
+              자료실 보기
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <a class="btn btn-ghost" href="index.html#newsroom">← 뉴스룸으로</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="muted">© 2026 GAON SEJONG</div>
+      <div class="muted">발행인 박상현 · 지주회사 누리온홀딩스</div>
+    </div>
+  </footer>
+
+  <script>
+    // -------- helpers --------
+    const qs = (k) => new URLSearchParams(location.search).get(k);
+
+    function setText(id, v){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.textContent = (v ?? "").toString();
+    }
+
+    // ✅ 중복 CTA 방지용: bodyHtml 안에 들어있는 CTA 링크 블록을 제거/무시
+    // (현재 기사 본문에 '카카오 문의 / 자료실 보기' 링크가 포함되어 있음) [Source](https://gsnews.netlify.app/article.html?id=press-piphone-overview)
+    function sanitizeBodyHtml(html){
+      if(!html) return "";
+      let out = html;
+
+      // 1) "카카오 문의" / "자료실 보기" 링크가 함께 있는 한 줄/문단을 제거(완화형)
+      out = out.replace(/<a[^>]*open\.kakao\.com[^>]*>.*?<\/a>\s*<a[^>]*>.*?자료실.*?<\/a>/gi, "");
+      out = out.replace(/<a[^>]*>.*?카카오.*?문의.*?<\/a>\s*<a[^>]*docs(\.html)?[^>]*>.*?자료실.*?<\/a>/gi, "");
+
+      // 2) 자료실 링크가 /docs 로 되어 있으면 /docs.html로 교체(404 예방)
+      out = out.replace(/href="https?:\/\/gsnews\.netlify\.app\/docs"/gi, 'href="https://gsnews.netlify.app/docs.html"');
+      out = out.replace(/href="\/docs"/gi, 'href="docs.html"');
+      out = out.replace(/href="docs"/gi, 'href="docs.html"');
+
+      return out;
+    }
+
+    function showNotFound(msg){
+      document.getElementById("aTitle").textContent = "기사 찾을 수 없음";
+      document.getElementById("aExcerpt").textContent = msg || "요청하신 기사를 찾지 못했습니다.";
+      document.getElementById("aBody").innerHTML = "";
+    }
+
+    async function main(){
+      const id = qs("id");
+      if(!id) return showNotFound("URL에 id 파라미터가 없습니다. 예: article.html?id=press-piphone-overview");
+
+      try{
+        // news.json은 루트에서 로드 [Source](https://gsnews.netlify.app/news.json)
+        const res = await fetch("news.json", { cache: "no-store" });
+        if(!res.ok) throw new Error("news.json fetch failed: " + res.status);
+        const data = await res.json();
+
+        const items = (data && data.articles) ? data.articles : [];
+        const item = items.find(x => x && x.id === id);
+
+        if(!item) return showNotFound("news.json에 해당 id가 없습니다: " + id);
+
+        setText("aTag", item.category || "기사");
+        setText("aStatus", item.status ? ("· " + item.status) : "");
+        setText("aTitle", item.title || "제목 없음");
+        setText("aExcerpt", item.excerpt || "");
+
+        setText("aDate", item.date || "—");
+        setText("aRead", item.readTime ? ("읽는 시간 " + item.readTime) : "읽는 시간 —");
+
+        // 본문
+        const body = document.getElementById("aBody");
+        body.innerHTML = sanitizeBodyHtml(item.bodyHtml || "<p>본문이 준비중입니다.</p>");
+
+        // 제목/OG 업데이트(간단 버전)
+        document.title = (item.title ? (item.title + " | 가온세종") : "기사 | 가온세종");
+        const ogt = document.querySelector('meta[property="og:title"]');
+        if(ogt) ogt.setAttribute("content", document.title);
+
+        const ogd = document.querySelector('meta[property="og:description"]');
+        if(ogd) ogd.setAttribute("content", (item.excerpt || "news.json 기반 기사"));
+
+      }catch(e){
+        showNotFound("news.json을 불러오지 못했습니다. 파일 위치/이름(news.json)을 확인하세요.");
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
