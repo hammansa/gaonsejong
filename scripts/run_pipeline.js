@@ -9,6 +9,13 @@ const { spawnSync } = require('child_process');
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG_DIR = path.join(ROOT, 'config');
 
+// Load environment variables from GEMINI_API_KEY.env if present
+try{
+  require('dotenv').config({ path: path.join(ROOT, 'GEMINI_API_KEY.env') });
+}catch(e){
+  // dotenv not installed or load failed; environment may be provided externally
+}
+
 function loadYaml(name){
   const p = path.join(CONFIG_DIR, name);
   if(!fs.existsSync(p)) return null;

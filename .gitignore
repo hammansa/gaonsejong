@@ -8,3 +8,8 @@ package-lock.json
 # Python virtual envs
 venv/
 __pycache__/
+
+# local env / API keys
+GEMINI_API_KEY.env
+.env
+.env.*
