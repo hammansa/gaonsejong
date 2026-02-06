@@ -13,3 +13,7 @@ __pycache__/
 GEMINI_API_KEY.env
 .env
 .env.*
+
+# Do not commit built deploy output (optionally generated locally)
+deploy/netlify/
+deploy/github/
