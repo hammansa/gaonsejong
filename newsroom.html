@@ -3,160 +3,146 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Newsroom | 가온세종</title>
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Newsroom | 가온세종" />
-  <meta property="og:description" content="news.json 기반으로 전체 기사 목록을 제공합니다." />
-  <meta property="og:image" content="assets/hero-space-light.jpg" />
-
+  <title>뉴스룸 | 노가다뉴스</title>
   <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-  <!-- 배경 -->
-  <div class="bg-ambient" aria-hidden="true"></div>
-  <div class="universe" aria-hidden="true">
-    <div class="stars"></div>
-    <div class="nebula"></div>
-    <div class="grid"></div>
-    <div class="vignette"></div>
-  </div>
-
-  <!-- 헤더 -->
-  <header class="site-header" id="top">
-    <div class="header-inner container">
-      <a class="brand" href="index.html#top">
-        <img class="brand-mark" src="assets/logo.png" alt="가온세종 로고" />
-        <span class="brand-text">GAON SEJONG</span>
-      </a>
-
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="newsroom.html">Newsroom</a>
-        <a href="docs.html">Docs</a>
-        <a href="about.html">Business·IR</a>
-      </nav>
-
-      <a class="btn btn-kakao" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener noreferrer">
-        카카오 문의
-      </a>
-    </div>
-  </header>
-
-  <!-- 본문 -->
-  <main class="container section">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Newsroom</p>
-        <h1 class="section-title" style="margin-top:6px;">전체 기사</h1>
-        <p class="section-sub">news.json 기반으로 자동 렌더링됩니다.</p>
-      </div>
-
-      <div class="glass" style="padding:12px 12px; min-width:min(560px,100%);">
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <input id="q" placeholder="검색 (제목/요약)" style="flex:1; min-width:180px; height:40px; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:rgba(10,14,30,.25); color:var(--txt); padding:0 12px; outline:none;">
-          <select id="cat" style="height:40px; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:rgba(10,14,30,.25); color:var(--txt); padding:0 10px; outline:none;">
-            <option value="All">All</option>
-          </select>
-          <span id="count" class="muted" style="align-self:center;">—</span>
+  <style>
+    /* 뉴스룸 전용 레이아웃 스타일 */
+    .news-filter { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+    .filter-btn { padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.3s; border: 1px solid var(--border); background: var(--glass); color: var(--muted); }
+    .filter-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .news-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .news-card { display: flex; flex-direction: column; height: 100%; overflow: hidden; text-decoration: none; color: inherit; transition: 0.3s; }
+    .news-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+    .news-card-img { width: 100%; height: 200px; overflow: hidden; }
+    .news-card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .news-card:hover .news-card-img img { scale: 1.05; }
+    .news-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    <!doctype html>
+    <html lang="ko">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>뉴스룸 | 노가다뉴스</title>
+      <link rel="stylesheet" href="style.css" />
+      <style>
+        /* 뉴스룸 전용 레이아웃 스타일 */
+        .news-filter { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+        .filter-btn { padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.3s; border: 1px solid var(--border); background: var(--glass); color: var(--muted); }
+        .filter-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .news-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+        .news-card { display: flex; flex-direction: column; height: 100%; overflow: hidden; text-decoration: none; color: inherit; transition: 0.3s; }
+        .news-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .news-card-img { width: 100%; height: 200px; overflow: hidden; }
+        .news-card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .news-card:hover .news-card-img img { scale: 1.05; }
+        .news-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+        .news-card-cat { font-size: 12px; color: var(--primary); font-weight: 800; margin-bottom: 8px; }
+        .news-card-title { font-size: 18px; font-weight: 800; margin-bottom: 12px; line-height: 1.4; }
+        .news-card-excerpt { color: var(--muted); font-size: 14px; margin-bottom: 20px; line-height: 1.5; flex: 1; }
+        .news-card-meta { font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 12px; }
+      </style>
+    </head>
+    <body class="page-newsroom">
+      <header class="site-header">
+        <div class="header-inner container">
+          <a class="brand" href="index.html">
+            <img class="brand-mark" src="assets/logo.svg" alt="노가다뉴스 로고" />
+            <span class="brand-text">NOGADA NEWS</span>
+          </a>
+          <nav class="nav">
+            <a href="index.html">홈</a>
+            <a href="newsroom.html" style="color:var(--primary)">뉴스룸</a>
+            <a href="rights.html">권익보호</a>
+            <a href="community.html">현장커뮤니티</a>
+          </nav>
+          <a class="btn btn-kakao" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener noreferrer">제보하기</a>
         </div>
-      </div>
-    </div>
+      </header>
 
-    <div id="state" class="glass" style="padding:16px; margin-bottom:14px;">
-      <p class="mini-desc" style="margin:0; color:var(--muted);">목록을 불러오는 중입니다…</p>
-    </div>
-
-    <div id="newsGrid" class="news-grid"></div>
-
-    <div id="empty" class="glass" style="padding:16px; margin-top:14px; display:none;">
-      <p class="mini-desc" style="margin:0; color:var(--muted);">조건에 맞는 기사가 없습니다.</p>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="muted">© 2026 GAON SEJONG</div>
-      <div class="muted">발행인 박상현 · 지주회사 누리온홀딩스</div>
-    </div>
-  </footer>
-
-  <script>
-    const $ = (s)=>document.querySelector(s);
-    const esc = (s)=> (s ?? "").toString().replace(/[&<>"']/g, m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[m]));
-
-    function card(a){
-      return `
-        <a class="glass news-card" href="article.html?id=${encodeURIComponent(a.id)}">
-          <span class="news-tag">${esc(a.category || "기사")}</span>
-          <div class="news-title">${esc(a.title || "제목 없음")}</div>
-          <div class="news-meta">
-            <span>${esc(a.date || "—")}</span>
-            <span>${esc(a.readTime ? ("읽는 시간 " + a.readTime) : "읽는 시간 —")}</span>
-            ${a.status ? `<span>· ${esc(a.status)}</span>` : ``}
+      <main class="container section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Newsroom</p>
+            <h2 class="section-title">현장의 진실을 전합니다</h2>
           </div>
-          <p class="news-excerpt">${esc(a.excerpt || "")}</p>
-        </a>`;
-    }
+        </div>
 
-    let ARTICLES = [];
+        <div class="news-filter">
+          <button class="filter-btn active">전체</button>
+          <button class="filter-btn">현장브리핑</button>
+          <button class="filter-btn">법률/권익</button>
+          <button class="filter-btn">사람들</button>
+          <button class="filter-btn">창간특집</button>
+        </div>
 
-    function buildCats(){
-      const cats = new Set(["All"]);
-      ARTICLES.forEach(a => cats.add(a.category || "기사"));
-      $("#cat").innerHTML = Array.from(cats).map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
-    }
+        <div class="news-card-grid" id="newsGrid">
+          <div class="muted">소식을 불러오는 중입니다...</div>
+        </div>
+      </main>
 
-    function render(){
-      const q = ($("#q").value || "").trim().toLowerCase();
-      const cat = $("#cat").value;
+      <footer class="site-footer">
+        <div class="footer-inner container">
+          <div class="muted">© 2026 NOGADA NEWS. All Rights Reserved.</div>
+          <div class="muted">발행인 : 박 상 현</div>
+          <div class="muted">지주회사 : (주)누리온홀딩스</div>
+        </div>
+      </footer>
 
-      const filtered = ARTICLES.filter(a=>{
-        const inCat = (cat === "All") || ((a.category || "기사") === cat);
-        const hay = ((a.title||"") + " " + (a.excerpt||"")).toLowerCase();
-        const inQ = (!q) || hay.includes(q);
-        return inCat && inQ;
-      });
+      <script>
+        const esc = (s) => (s ?? "").toString().replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
 
-      $("#count").textContent = `${filtered.length}건`;
-      $("#newsGrid").innerHTML = filtered.map(card).join("");
-      $("#empty").style.display = filtered.length ? "none" : "block";
-
-      const st = $("#state");
-      if(st) st.style.display = "none";
-    }
-
-    async function main(){
-      try{
-        // news.json은 현재 정상 응답 구조(site + articles). [Source](https://gsnews.netlify.app/news.json)
-        const res = await fetch("news.json", { cache: "no-store" });
-        if(!res.ok) throw new Error("news.json fetch failed: " + res.status);
-
-        const data = await res.json();
-        ARTICLES = (data && data.articles) ? data.articles : [];
-
-        buildCats();
-        render();
-
-        $("#q").addEventListener("input", render);
-        $("#cat").addEventListener("change", render);
-
-      }catch(e){
-        const st = $("#state");
-        if(st){
-          st.innerHTML = `
-            <p class="mini-desc" style="margin:0; color:var(--muted);">
-              news.json을 불러오지 못했습니다. 루트에 <code>news.json</code>이 있는지 확인하세요.
-            </p>`;
+        // 카테고리 → 기본 썸네일 자동 매핑
+        function normalizeCategory(cat){ return (cat ?? "").toString().trim(); }
+        function getCategoryCoverMap(){
+          return {
+            "창간특집": "assets/thumbs/launch.jpg",
+            "권익보호": "assets/thumbs/rights.jpg",
+            "현장소식": "assets/thumbs/site.jpg",
+            "취재수첩": "assets/thumbs/notebook.jpg",
+            "인터뷰": "assets/thumbs/interview.jpg",
+            "칼럼": "assets/thumbs/column.jpg",
+            "속보": "assets/thumbs/breaking.jpg"
+          };
         }
-        $("#newsGrid").innerHTML = "";
-        $("#empty").style.display = "none";
-        $("#count").textContent = "—";
-      }
-    }
+        function getCover(article){
+          if (article && article.cover) return article.cover;
+          const cat = normalizeCategory(article?.category);
+          const map = getCategoryCoverMap();
+          if (cat && map[cat]) return map[cat];
+          return "assets/worker.jpg";
+        }
 
-    main();
-  </script>
-</body>
-</html>
+        async function loadNews() {
+          try {
+            const res = await fetch("news.json", { cache: "no-store" });
+            const data = await res.json();
+            const articles = data.articles || [];
+            const grid = document.getElementById("newsGrid");
+
+            if (articles.length === 0) {
+              grid.innerHTML = '<div class="muted">게시된 기사가 없습니다.</div>';
+              return;
+            }
+
+            grid.innerHTML = articles.map(a => `
+              <a href="article.html?id=${encodeURIComponent(a.id)}" class="news-card glass">
+                <div class="news-card-img">
+                  <img src="${esc(getCover(a))}" alt="뉴스 이미지" loading="lazy">
+                </div>
+                <div class="news-card-body">
+                  <span class="news-card-cat">${esc(a.category)}</span>
+                  <h3 class="news-card-title">${esc(a.title)}</h3>
+                  <p class="news-card-excerpt">${esc(a.excerpt)}</p>
+                  <div class="news-card-meta">${esc(a.date)} · ${esc(a.readTime)}</div>
+                </div>
+              </a>
+            `).join("");
+          } catch (e) {
+            console.error(e);
+            document.getElementById("newsGrid").innerHTML = '<div class="muted">기사를 불러오는 중 오류가 발생했습니다.</div>';
+          }
+        }
+        loadNews();
+      </script>
+    </body>
+    </html>

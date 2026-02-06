@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>기사 | 가온세종</title>
+  <title>기사 | 노가다뉴스</title>
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="기사 | 가온세종" />
+  <meta property="og:title" content="기사 | 노가다뉴스" />
   <meta property="og:description" content="news.json 기반으로 기사 본문을 로드합니다." />
   <meta property="og:image" content="assets/hero-space-light.jpg" />
 
@@ -22,8 +22,8 @@
     <div class="header-inner container">
       <a class="brand" href="index.html#top">
         <!-- 로고는 사용자가 assets/logo.png로 리네임 완료했다고 하셨으니 그대로 사용 -->
-        <img class="brand-mark" src="assets/logo.png" alt="가온세종 로고" />
-        <span class="brand-text">GAON SEJONG</span>
+        <img class="brand-mark" src="assets/logo.svg" alt="노가다뉴스 로고" />
+        <span class="brand-text">NOGADA NEWS</span>
       </a>
 
       <nav class="nav">
@@ -81,8 +81,9 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="muted">© 2026 GAON SEJONG</div>
-      <div class="muted">발행인 박상현 · 지주회사 누리온홀딩스</div>
+      <div class="muted">© 2026 NOGADA NEWS</div>
+      <div class="muted">발행인 : 박 상 현</div>
+      <div class="muted">지주회사 : (주)누리온홀딩스</div>
     </div>
   </footer>
 
@@ -148,7 +149,7 @@
         body.innerHTML = sanitizeBodyHtml(item.bodyHtml || "<p>본문이 준비중입니다.</p>");
 
         // 제목/OG 업데이트(간단 버전)
-        document.title = (item.title ? (item.title + " | 가온세종") : "기사 | 가온세종");
+        document.title = (item.title ? (item.title + " | 노가다뉴스") : "기사 | 노가다뉴스");
         const ogt = document.querySelector('meta[property="og:title"]');
         if(ogt) ogt.setAttribute("content", document.title);
 

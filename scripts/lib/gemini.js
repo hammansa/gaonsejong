@@ -5,6 +5,7 @@ const fetch = require('node-fetch');
 
 const MODEL = process.env.GEMINI_MODEL || 'text-bison-001';
 const BASE_URL = 'https://generativelanguage.googleapis.com/v1beta2/models';
+const BASE_URL_V1 = 'https://generativelanguage.googleapis.com/v1/models';
 
 function buildPrompt(ctx){
   // Minimal prompt template instructing LLM to return a single JSON object.
@@ -24,17 +25,35 @@ function buildPrompt(ctx){
 }
 
 async function callGemini(prompt, apiKey){
-  const url = `${BASE_URL}/${MODEL}:generateText?key=${encodeURIComponent(apiKey)}`;
   const body = {
     prompt: { text: prompt },
     // Use a conservative token budget to prefer fast/cheap models and concise output
     maxOutputTokens: parseInt(process.env.GEMINI_MAX_TOKENS || '512', 10)
   };
-  const resp = await fetch(url, {
+
+  // try primary endpoint first
+  let url = `${BASE_URL}/${MODEL}:generateText?key=${encodeURIComponent(apiKey)}`;
+  let resp = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   });
+
+  // If the beta endpoint returns 404 (model/entity not found), retry v1 endpoint as fallback
+  if(resp && resp.status === 404){
+    try{
+      console.warn('Gemini v1beta2 returned 404; retrying v1 endpoint');
+      url = `${BASE_URL_V1}/${MODEL}:generateText?key=${encodeURIComponent(apiKey)}`;
+      resp = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+    }catch(e){
+      // fallthrough to error handling below
+    }
+  }
+
   if(!resp.ok){
     const txt = await resp.text();
     throw new Error(`Gemini API error ${resp.status}: ${txt}`);
