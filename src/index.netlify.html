@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>노가다뉴스 | 노동의 가치를 다함께</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="노가다뉴스" />
+  <meta property="og:description" content="노력하는 사람들의 가치 있는 땀방울로 다 함께 만드는 세상" />
+  <meta property="og:image" content="assets/worker.jpg" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Netlify-specific meta/snippets -->
+  <!-- These placeholders can be replaced at build time with Netlify env vars if you run a build step. -->
+  <meta name="netlify:site" content="true" />
+  <!-- Build context (e.g. production, branch-deploy, deploy-preview) -->
+  <meta name="netlify:context" content="__CONTEXT__" />
+  <!-- Deploy URL for preview sites: replace __DEPLOY_PRIME_URL__ at build-time if desired -->
+  <meta name="netlify:deploy_url" content="__DEPLOY_PRIME_URL__" />
+  <!-- Canonical/OG URL placeholder that CI/build can replace with actual deploy URL -->
+  <link rel="canonical" href="__DEPLOY_PRIME_URL__" />
+
+  <!-- Optional: Netlify Analytics / Identity setup hints -->
+  <!-- Identity widget loaded when using Netlify Identity (enable via Netlify dashboard) -->
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- End Netlify-specific meta/snippets -->
+</head>
+<body>
+  <!-- Netlify-optimized index. Use `build-to-deploy.ps1` or your CI to replace placeholders below. -->
+
+  <!-- Example: Netlify Forms (uncomment and adapt to accept contact submissions on Netlify) -->
+  <!--
+  <form name="contact" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="contact" />
+    <label>이름: <input type="text" name="name"></label>
+    <label>메시지: <textarea name="message"></textarea></label>
+    <button type="submit">보내기</button>
+  </form>
+  -->
+
+  <p>이 파일은 Netlify용 초기 복사본입니다. 빌드 단계에서 `__DEPLOY_PRIME_URL__`과 `__CONTEXT__`를 치환하면 배포 프리뷰/컨텍스트에 따라 OG/메타를 동적으로 설정할 수 있습니다.</p>
+
+  <script>
+    // If build replaces placeholders, expose them to JS via meta tags
+    (function(){
+      var deployMeta = document.querySelector('meta[name="netlify:deploy_url"]');
+      var contextMeta = document.querySelector('meta[name="netlify:context"]');
+      window.NETLIFY_DEPLOY_URL = deployMeta ? deployMeta.getAttribute('content') : '';
+      window.NETLIFY_CONTEXT = contextMeta ? contextMeta.getAttribute('content') : '';
+      // Example: if preview, adjust og:url dynamically
+      if(window.NETLIFY_DEPLOY_URL && window.NETLIFY_DEPLOY_URL.indexOf('http')===0){
+        var og = document.querySelector('meta[property="og:url"]') || document.createElement('meta');
+        og.setAttribute('property','og:url');
+        og.setAttribute('content', window.NETLIFY_DEPLOY_URL);
+        document.head.appendChild(og);
+      }
+    })();
+  </script>
+
+</body>
+</html>

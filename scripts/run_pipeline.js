@@ -3,18 +3,16 @@ const path = require('path');
 const yaml = require('js-yaml');
 const { fetchFeed } = require('./lib/rss');
 const { fetchChannelVideos } = require('./lib/youtube');
-const { generateArticle } = require('./lib/gemini');
+const { generateArticle } = require('./lib/llm_client');
 const { spawnSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG_DIR = path.join(ROOT, 'config');
 
-// Load environment variables from GEMINI_API_KEY.env if present
+// Load environment variables from local .env if present (do NOT commit secrets).
 try{
-  require('dotenv').config({ path: path.join(ROOT, 'GEMINI_API_KEY.env') });
-}catch(e){
-  // dotenv not installed or load failed; environment may be provided externally
-}
+  require('dotenv').config({ path: path.join(ROOT, '.env') });
+}catch(e){ /* ignore dotenv load errors */ }
 
 function loadYaml(name){
   const p = path.join(CONFIG_DIR, name);

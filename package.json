@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "run-pipeline": "node scripts/run_pipeline.js"
+    "run-pipeline": "node scripts/run_pipeline.js",
+    "build:github": "powershell -File build-to-deploy.ps1; exit $LASTEXITCODE",
+    "build:netlify": "powershell -File build-to-deploy.ps1; exit $LASTEXITCODE",
+    "build:deploy": "powershell -File build-to-deploy.ps1; exit $LASTEXITCODE"
   },
   "dependencies": {
     "rss-parser": "^3.12.0",
