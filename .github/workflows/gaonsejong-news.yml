@@ -38,14 +38,14 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: discovered-feeds-${{ matrix.gemini_model }}
+          name: discovered-feeds-${{ matrix.genspark_model }}
           path: logs/discovered_feeds.csv
 
       - name: Upload news.json
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: news-${{ matrix.gemini_model }}
+          name: news-${{ matrix.genspark_model }}
           path: news.json
 
   propose-sources-update:
