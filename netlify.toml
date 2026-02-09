@@ -1,0 +1,10 @@
+[build]
+  # If you already generate a publish bundle locally, set this to the folder path
+  # that contains the static site to serve. We use `nogadanews_publish` here.
+  publish = "nogadanews_publish"
+  # No build command required for static bundle. If you build from source, set the command.
+  command = ""
+
+[context.production.environment]
+  # Example: pin Node version if any build steps rely on node
+  NODE_VERSION = "18"
