@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>인력시장 | 노가다뉴스</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .card{border:1px solid #eee;padding:12px;border-radius:8px}
+    .muted{color:#777;font-size:0.95em}
+  </style>
+</head>
+<body>
+  <div class="container" style="padding:24px">
+    <h1 style="margin-top:0">인력시장 — 현장 인력 모집 및 지원</h1>
+    <p class="muted">현장 인력을 구하는 기업과 지원자가 만나는 공간입니다. 공고 작성 후 관리자의 승인으로 게시됩니다.</p>
+
+    <div style="display:flex;gap:16px;margin-top:18px;align-items:flex-start">
+      <div style="flex:2">
+        <h3>공고 목록</h3>
+        <div id="posts" class="cards">로딩 중…</div>
+      </div>
+
+      <aside style="flex:1">
+        <h3>새 공고 올리기</h3>
+        <form id="postForm" method="post" data-netlify="true">
+          <label>회사/기관명<br><input name="agency" required style="width:100%"></label><br>
+          <label>제목<br><input name="title" required style="width:100%"></label><br>
+          <label>지역<br><input name="region" style="width:100%"></label><br>
+          <label>내용<br><textarea name="body" rows="5" style="width:100%"></textarea></label><br>
+          <label>연락처(선택)<br><input name="contact" style="width:100%"></label>
+          <input type="hidden" name="status" value="pending">
+          <button class="btn btn-primary" type="submit" style="margin-top:8px">등록 요청</button>
+        </form>
+        <p class="muted" style="margin-top:10px">제출 후 관리자의 승인절차가 진행됩니다. 파일 업로드는 관리자 문의 후 제공됩니다.</p>
+      </aside>
+    </div>
+
+    <p style="margin-top:20px" class="muted">관리자: <a href="admin/labor.html">관리 페이지</a></p>
+  </div>
+
+  <script>
+    async function load(){
+      try{
+        const res = await fetch('/data/labor_posts.json',{cache:'no-store'});
+        const j = await res.json();
+        const posts = Array.isArray(j)?j:j.posts||[];
+        const container = document.getElementById('posts');
+        container.innerHTML = '';
+        posts.filter(p=>p.status=='published').forEach(p=>{
+          const d = document.createElement('div'); d.className='card';
+          d.innerHTML = `<strong>${p.title}</strong><div class="muted">${p.agency} · ${p.region} · ${p.postedDate||''}</div><p>${(p.body||'').slice(0,180)}</p><a href="#">지원하기</a>`;
+          container.appendChild(d);
+        });
+        if(!container.children.length) container.innerHTML='<div class="muted">게시된 공고가 없습니다.</div>';
+      }catch(e){document.getElementById('posts').textContent='로드 실패: '+e.message}
+    }
+    load();
+
+    // Netlify forms fallback: let the static form submit to Netlify (no JS required)
+  </script>
+</body>
+</html>
