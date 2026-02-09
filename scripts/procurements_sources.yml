@@ -1,0 +1,12 @@
+# Define sources to fetch procurement data from. Customize endpoints and params per source.
+sources:
+  - id: koness_sample
+    type: koness
+    name: KONEPS (예시)
+    endpoint: "https://www.g2b.go.kr/ep/ptis/ptisTotSearch.do"  # 실제 API는 인증 필요
+    params: {}
+
+  - id: local_rss
+    type: rss
+    name: Daejeon 건설공고 RSS
+    url: "https://www.daejeon.go.kr/rss/notice.xml"
