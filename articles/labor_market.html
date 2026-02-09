@@ -30,6 +30,13 @@
           <label>지역<br><input name="region" style="width:100%"></label><br>
           <label>내용<br><textarea name="body" rows="5" style="width:100%"></textarea></label><br>
           <label>연락처(선택)<br><input name="contact" style="width:100%"></label>
+          <!-- Honeypot field to catch bots (should be left empty) -->
+          <input name="hp_email" style="display:none" tabindex="-1" autocomplete="off">
+          <!-- Simple math CAPTCHA -->
+          <div style="margin-top:8px">
+            <label id="captchaQuestion">간단한 인증: </label><br>
+            <input id="captcha_ans" name="captcha_ans" placeholder="계산 결과를 입력하세요" required style="width:100%; padding:6px; margin-top:6px;">
+          </div>
           <input type="hidden" name="status" value="published">
           <button class="btn btn-primary" type="submit" style="margin-top:8px">공고 올리기 (즉시 게시)</button>
         </form>
@@ -88,6 +95,12 @@
 
     document.addEventListener('DOMContentLoaded', ()=>{
       loadInitial();
+      // init simple math captcha
+      const a = Math.floor(Math.random()*8)+2;
+      const b = Math.floor(Math.random()*8)+2;
+      const q = document.getElementById('captchaQuestion');
+      q.textContent = `간단한 인증: ${a} + ${b} = ?`;
+      q.dataset.answer = String(a+b);
 
       // If URL contains shared post, show it in modal-ish area
       const shared = readSharedPostFromHash();
@@ -101,6 +114,12 @@
 
       const form = document.getElementById('postForm');
       form.addEventListener('submit', (e)=>{
+        // client-side captcha + honeypot validation
+        const hp = form.querySelector('input[name="hp_email"]').value;
+        if(hp && hp.trim() !== ''){ e.preventDefault(); alert('스팸으로 인식되어 제출이 차단되었습니다.'); return; }
+        const provided = (document.getElementById('captcha_ans')||{}).value || '';
+        const expected = document.getElementById('captchaQuestion').dataset.answer;
+        if(String(provided).trim() !== String(expected)) { e.preventDefault(); alert('간단한 인증이 올바르지 않습니다. 계산 결과를 확인해 주세요.'); return; }
         e.preventDefault();
         const fd = new FormData(form);
         const post = {
