@@ -1,0 +1,24 @@
+[
+  {
+    "id": "p-20260210-001",
+    "title": "용연~덕남정수장 비상도수관로 건설공사",
+    "agency": "충남도 상하수도사업소",
+    "region": "충남",
+    "amount": "1,468억 원 (총사업비)",
+    "deadline": "2026-02-13",
+    "postedDate": "2026-02-10",
+    "url": "https://procurement.example/notice/p-20260210-001",
+    "tags": "관로, 상수도, 대형공사"
+  },
+  {
+    "id": "p-20260209-002",
+    "title": "대전 도안신도시 도로 정비 공사(소규모)",
+    "agency": "대전광역시 건설과",
+    "region": "대전",
+    "amount": "8억 원",
+    "deadline": "2026-02-20",
+    "postedDate": "2026-02-09",
+    "url": "https://procurement.example/notice/p-20260209-002",
+    "tags": "도로, 정비"
+  }
+]

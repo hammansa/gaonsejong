@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>입찰·공고 | 노가다뉴스</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .filter {display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px}
+    table {width:100%; border-collapse:collapse}
+    th,td {padding:10px;border-bottom:1px solid #eee;text-align:left}
+    th{background:#fafafa}
+    .muted{color:#777;font-size:0.9em}
+  </style>
+</head>
+<body>
+  <div class="container" style="padding:24px">
+    <h1 style="margin-top:0">대전·세종·충남 공공기관 입찰·공고</h1>
+    <p class="muted">지역 기관의 주요 입찰과 공고를 모아 제공합니다. 데이터는 자동 갱신됩니다.</p>
+
+    <div class="filter">
+      <select id="regionFilter"><option value="">전체 지역</option><option>대전</option><option>세종</option><option>충남</option></select>
+      <select id="agencyFilter"><option value="">전체 기관</option></select>
+      <input id="q" placeholder="검색어(공고명, 키워드)" style="flex:1;padding:8px;border:1px solid #ddd;border-radius:6px" />
+      <button id="clearBtn" class="btn">초기화</button>
+    </div>
+
+    <div id="count" class="muted">로딩 중…</div>
+    <div style="overflow:auto; margin-top:12px">
+      <table id="tbl">
+        <thead>
+          <tr><th>기관</th><th>공고명</th><th>금액</th><th>마감</th><th>지역</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:18px" class="muted">데이터 소스: 조달청·지방자치단체 공고 (자동 수집)</p>
+  </div>
+
+  <script>
+    async function load() {
+      const res = await fetch('/data/procurements.json', {cache:'no-store'});
+      const j = await res.json();
+      const items = Array.isArray(j) ? j : (j.items || []);
+      const tbody = document.querySelector('#tbl tbody');
+      const agencySet = new Set();
+      items.forEach(it=>agencySet.add(it.agency));
+      const agencyFilter = document.getElementById('agencyFilter');
+      agencySet.forEach(a=>{const opt=document.createElement('option');opt.value=a;opt.textContent=a;agencyFilter.appendChild(opt)});
+
+      function render(list){
+        tbody.innerHTML = '';
+        list.forEach(it=>{
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${it.agency}</td><td><a href="${it.url}" target="_blank" rel="noopener">${it.title}</a></td><td>${it.amount||''}</td><td>${it.deadline||''}</td><td>${it.region||''}</td>`;
+          tbody.appendChild(tr);
+        });
+        document.getElementById('count').textContent = `총 ${list.length}건`;
+      }
+
+      const q = document.getElementById('q');
+      const regionFilter = document.getElementById('regionFilter');
+      agencyFilter.addEventListener('change', apply);
+      regionFilter.addEventListener('change', apply);
+      q.addEventListener('input', apply);
+      document.getElementById('clearBtn').addEventListener('click', ()=>{q.value='';regionFilter.value='';agencyFilter.value='';apply()});
+
+      function apply(){
+        const kw = q.value.trim().toLowerCase();
+        const reg = regionFilter.value;
+        const ag = agencyFilter.value;
+        const filtered = items.filter(it=>{
+          if(reg && it.region !== reg) return false;
+          if(ag && it.agency !== ag) return false;
+          if(kw){
+            return (it.title||'').toLowerCase().includes(kw) || (it.tags||'').toLowerCase().includes(kw);
+          }
+          return true;
+        });
+        render(filtered);
+      }
+
+      render(items);
+    }
+    load().catch(e=>{document.getElementById('count').textContent='데이터 로드 실패: '+(e.message||e)});
+  </script>
+</body>
+</html>
