@@ -168,7 +168,21 @@ async function run(){
         continue;
       }
 
-      const article = parsed.bundle;
+      let article = parsed.bundle;
+      // 정합성 보장: 파이프라인이 bodyHtml 대신 content/body를 사용할 수 있으므로
+      // 클라이언트가 기대하는 `bodyHtml` 필드를 우선 보장합니다.
+      if(article){
+        if(!article.bodyHtml){
+          article.bodyHtml = article.body || article.content || "";
+        }
+        // excerpt가 없으면 본문에서 텍스트를 추출해서 간단 요약 생성
+        if(!article.excerpt){
+          try{
+            const txt = String(article.bodyHtml || "").replace(/<[^>]+>/g, '');
+            article.excerpt = txt.trim().slice(0, 220);
+          }catch(e){ article.excerpt = article.title || ""; }
+        }
+      }
       // safety: require sources if config enforces
       if(safety && safety.safety && safety.safety.citation_required){
         if(!(article.sources && article.sources.length) && !(article.official_docs && article.official_docs.length)){

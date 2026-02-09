@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>노가다뉴스 | 노동의 가치를 다함께</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="노가다뉴스" />
+  <meta property="og:description" content="노력하는 사람들의 가치 있는 땀방울로 다 함께 만드는 세상" />
+  <meta property="og:image" content="assets/worker.jpg" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- GitHub Pages index, with optional Netlify build placeholders for parity. -->
+  <!-- If you later want to deploy this on Netlify, `__DEPLOY_PRIME_URL__` and `__CONTEXT__` are provided as placeholders. -->
+  <meta name="netlify:context" content="__CONTEXT__" />
+  <meta name="netlify:deploy_url" content="__DEPLOY_PRIME_URL__" />
+  <link rel="canonical" href="__DEPLOY_PRIME_URL__" />
+  <!-- Optionally include Netlify Identity widget when running on Netlify -->
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- 기존 index.html 내용을 기준으로 필요한 부분은 여기에서 편집하세요 -->
+  <p>이 파일은 GitHub Pages용 초기 복사본입니다. 필요시 수정 후 `build-to-deploy.ps1`로 배포 폴더 생성하세요.</p>
+
+  <script>
+    // Make placeholders available to JS (if build replaces them they will be real values)
+    (function(){
+      var deployMeta = document.querySelector('meta[name="netlify:deploy_url"]');
+      window.NETLIFY_DEPLOY_URL = deployMeta ? deployMeta.getAttribute('content') : '';
+      window.NETLIFY_CONTEXT = (document.querySelector('meta[name="netlify:context"]')||{}).getAttribute('content') || '';
+    })();
+  </script>
+
+</body>
+</html>

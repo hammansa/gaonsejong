@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>자료실 | 노가다뉴스</title>
+  <meta name="description" content="노가다뉴스 자료실: IR/로드맵/전략/미디어킷 문서를 한 곳에서 확인하세요." />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="universe" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="nebula"></div>
+    <div class="grid"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="index.html#top" aria-label="노가다뉴스 홈">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/hero-space-light.jpg" alt="" />
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">노가다뉴스</span>
+          <span class="brand-tag">Docs / IR</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="index.html#newsroom">뉴스룸</a>
+        <a href="index.html#business">사업/IR</a>
+        <a href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener" class="nav-cta">카카오 문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h1 class="section-title">자료실</h1>
+          <p class="section-sub">docs.json 기반으로 자동 렌더링됩니다. PDF를 추가하고 docs.json만 업데이트하세요.</p>
+        </div>
+
+        <div class="tools">
+          <div class="search glass" style="border-radius:16px;">
+            <span aria-hidden="true">🔎</span>
+            <input id="q" type="search" placeholder="문서 제목/설명 검색" autocomplete="off" />
+          </div>
+
+          <select class="select" id="cat" aria-label="카테고리 선택">
+            <option value="All">All</option>
+          </select>
+        </div>
+
+        <div class="pager" id="count">-</div>
+
+        <div class="docs-grid" id="docsGrid"></div>
+
+        <div class="center-actions">
+          <a class="btn btn-ghost" href="index.html#top">홈으로</a>
+          <a class="btn btn-kakao" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener">카카오 문의</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="kakao-float" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener" aria-label="카카오 오픈채팅 문의">
+    <span class="kakao-dot"></span>
+    카카오 문의
+  </a>
+
+  <script>
+    const $ = (s) => document.querySelector(s);
+    const docsGrid = $('#docsGrid');
+    const q = $('#q');
+    const cat = $('#cat');
+    const count = $('#count');
+
+    let DOCS = [];
+    let CATS = ["All"];
+
+    function escapeHtml(s){
+      return String(s || '')
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'","&#039;");
+    }
+
+    async function init(){
+      try{
+        const res = await fetch('docs.json', {cache:'no-store'});
+        if(!res.ok) throw new Error('docs.json not found');
+        const data = await res.json();
+
+        DOCS = data.docs || [];
+        CATS = data.categories || ["All"];
+
+        // build categories
+        cat.innerHTML = CATS.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+        render();
+
+        q.addEventListener('input', render);
+        cat.addEventListener('change', render);
+      }catch(e){
+        docsGrid.innerHTML = `
+          <div class="empty glass">
+            <div class="empty-title">docs.json을 불러오지 못했습니다</div>
+            <div class="empty-desc">루트에 docs.json 파일이 있는지 확인하세요.</div>
+          </div>
+        `;
+      }
+    }
+
+    function render(){
+      const keyword = (q.value || '').trim().toLowerCase();
+      const c = cat.value || 'All';
+
+      const filtered = DOCS.filter(d => {
+        const okCat = (c === 'All') || ((d.category || '') === c);
+        if(!okCat) return false;
+
+        if(!keyword) return true;
+        const hay = `${d.title || ''} ${d.desc || ''}`.toLowerCase();
+        return hay.includes(keyword);
+      });
+
+      count.textContent = `총 ${filtered.length}건`;
+
+      if(!filtered.length){
+        docsGrid.innerHTML = `
+          <div class="empty glass">
+            <div class="empty-title">검색 결과가 없습니다</div>
+            <div class="empty-desc">다른 키워드를 시도하거나 카테고리를 변경해보세요.</div>
+          </div>
+        `;
+        return;
+      }
+
+      docsGrid.innerHTML = filtered.map(d => `
+        <article class="doc glass">
+          <div class="doc-ico">📄</div>
+          <div class="doc-body">
+            <div class="doc-title">${escapeHtml(d.title)}</div>
+            <div class="doc-desc">${escapeHtml(d.desc || '')}</div>
+            <div class="doc-meta">
+              <span class="doc-tag">${escapeHtml(d.category || 'PDF')}</span>
+              ${d.date ? `<span class="doc-date">${escapeHtml(d.date)}</span>` : ``}
+            </div>
+          </div>
+          <div class="doc-actions">
+            <a class="btn btn-outline" href="${escapeHtml(d.file || '#')}" target="_blank" rel="noopener">PDF 열기</a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    init();
+  </script>
+</body>
+</html>

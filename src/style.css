@@ -1,0 +1,384 @@
+/* NOGADA NEWS - Brand Identity System
+  Colors: Safety Orange (#f39c12), Deep Navy (#1a1c20), Industrial Gray (#f4f4f4)
+*/
+
+:root {
+  --primary: #f39c12;        /* 안전 오렌지: 열정과 경각심 */
+  --primary-dark: #d35400;
+  --secondary: #1a1c20;      /* 다크 네이비: 신뢰와 묵직함 */
+  --bg-dark: #0f1113;
+  --text: #e0e0e0;
+  --muted: #a0a0a0;
+  --glass: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --container-width: 1100px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text);
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Glassmorphism --- */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* --- Header --- */
+.site-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15, 17, 19, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+  /* =========================
+     Header Background Video
+     ========================= */
+
+  .site-header-video {
+    position: relative;
+    min-height: 78vh;            /* 헤더 높이 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    background: #0f1113;         /* 영상 로딩 전 fallback */
+  }
+
+  /* 배경 레이어 */
+  .header-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .header-bg__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* 화면 꽉 채우기 */
+    filter: saturate(1.05) contrast(1.05);
+    transform: scale(1.02);      /* 가장자리 여백/흔들림 방지 */
+  }
+
+  /* 가독성 오버레이 */
+  .header-bg__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(60% 60% at 50% 35%, rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
+      linear-gradient(to bottom, rgba(15,17,19,0.55), rgba(15,17,19,0.92));
+  }
+
+  /* 헤더 상단 메뉴(영상 위로) */
+  .site-header-video .header-inner {
+    position: relative;
+    z-index: 2;
+    height: 70px;                /* 기존 .site-header 높이와 맞춤 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* 헤더 메인 카피 영역 */
+  .header-hero {
+    position: relative;
+    z-index: 2;
+    padding: 60px 0 80px;
+    text-align: center;
+  }
+
+  /* 모바일 최적화 */
+  @media (max-width: 768px) {
+    .site-header-video { min-height: 72vh; }
+    .header-hero { padding: 42px 0 60px; }
+  }
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark { width: 32px; height: 32px; }
+.brand-text {
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  color: var(--primary);
+}
+
+.nav { display: flex; gap: 24px; }
+.nav a { font-size: 15px; font-weight: 600; color: var(--muted); }
+.nav a:hover { color: var(--primary); }
+
+/* --- Hero Section --- */
+.hero { padding: 60px 0; }
+.hero-inner {
+  padding: 80px 40px;
+  text-align: center;
+  border: 2px solid var(--primary); /* 강조 테두리 */
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.2;
+  font-weight: 900;
+  margin-bottom: 24px;
+}
+
+.hero-desc {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+.btn-outline { border: 1px solid var(--primary); color: var(--primary); }
+.btn-outline:hover { background: var(--primary); color: #fff; }
+
+.btn-kakao { background: #fee500; color: #3c1e1e; }
+
+/* --- Grid & Cards --- */
+.section { padding: 80px 0; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.section-title { font-size: 32px; font-weight: 800; }
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card { padding: 30px; transition: 0.3s; }
+.card:hover { border-color: var(--primary); transform: translateY(-5px); }
+.card-title { font-size: 20px; font-weight: 800; margin-bottom: 12px; color: var(--primary); }
+.card-desc { color: var(--muted); font-size: 15px; }
+
+/* --- Footer --- */
+.site-footer {
+  padding: 60px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .hero-inner { padding: 40px 20px; }
+}
+
+/* =========================
+   Responsive: Header BG Video (Mobile)
+   ========================= */
+
+/* 기본(데스크톱/태블릿): 얼굴(중앙) 쪽이 화면 중앙에 오도록 */
+.header-bg__video {
+  object-position: 50% 35%; /* x=가운데, y=상단쪽(상황에 따라 30~45% 조정) */
+}
+
+/* 태블릿 */
+@media (max-width: 1024px) {
+  .site-header-video {
+    min-height: 72vh;
+  }
+
+  .header-hero {
+    padding: 44px 0 64px;
+  }
+
+  .header-bg__video {
+    object-position: 50% 30%;
+    transform: scale(1.06); /* 모바일에서 크롭이 커지므로 살짝 확대 */
+  }
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .site-header-video {
+    min-height: 78vh; /* 모바일은 헤더를 조금 더 길게 잡아 영상 존재감 확보 */
+  }
+
+  /* 상단 네비 높이/여백 조정(선택) */
+  .site-header-video .header-inner {
+    height: 64px;
+  }
+
+  .brand-text {
+    font-size: 18px;
+  }
+
+  .header-hero {
+    padding: 34px 0 52px;
+    text-align: left;             /* 모바일에서 가독성 ↑ */
+  }
+
+  .header-hero .hero-title {
+    font-size: clamp(26px, 7.2vw, 38px);
+    line-height: 1.15;
+  }
+
+  .header-hero .hero-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 34em;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 모바일에서 영상의 ‘중앙 인물’이 잘 보이도록 포커스 이동 */
+  .header-bg__video {
+    object-position: 55% 28%;     /* 인물이 약간 오른쪽이면 55%, 왼쪽이면 45%로 조정 */
+    transform: scale(1.12);
+    filter: saturate(1.05) contrast(1.08);
+  }
+
+  /* 텍스트 가독성용 오버레이를 모바일에서 조금 더 진하게 */
+  .header-bg__overlay {
+    background:
+      radial-gradient(70% 60% at 50% 30%, rgba(0,0,0,0.35), rgba(0,0,0,0.82)),
+      linear-gradient(to bottom, rgba(15,17,19,0.60), rgba(15,17,19,0.95));
+  }
+}
+
+/* 초소형 모바일 */
+@media (max-width: 420px) {
+  .site-header-video {
+    min-height: 82vh;
+  }
+
+  .header-bg__video {
+    object-position: 55% 24%;
+    transform: scale(1.18);
+  }
+
+  .header-hero {
+    padding: 28px 0 44px;
+  }
+}
+
+/* iOS Safari: 전체화면 재생 방지/레이아웃 안정화 보조 */
+.header-bg__video {
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+
+/* 카드/히어로 썸네일 공통 톤 정리 */
+.hero-img-area img,
+.news-card-img img {
+  object-fit: cover;
+  object-position: 50% 35%;
+  filter: saturate(1.03) contrast(1.05);
+}
+
+/* Latest3 card thumbnail styles */
+.latest3-thumb {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+}
+
+.latest3-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%; /* 인물 사진이면 약간 위쪽이 자연스럽습니다 */
+  transform: scale(1.02);
+  transition: transform .45s ease, filter .45s ease;
+  filter: saturate(1.03) contrast(1.05);
+}
+
+.latest3-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,0.00) 40%,
+    rgba(0,0,0,0.45) 100%
+  );
+  pointer-events: none;
+}
+
+.latest3-card:hover .latest3-thumb img {
+  transform: scale(1.08);
+  filter: saturate(1.08) contrast(1.08);
+}
+
+/* 반응형에서 썸네일 높이 조정 */
+@media (max-width: 992px) {
+  .latest3-thumb { height: 210px; }
+}
+@media (max-width: 420px) {
+  .latest3-thumb { height: 190px; }
+}

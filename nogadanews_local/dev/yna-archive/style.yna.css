@@ -1,0 +1,20 @@
+/* Archived YNA styles */
+:root{
+  --yna-accent:#d32f2f;
+  --yna-body:#222;
+  --yna-muted:#666;
+}
+body{font-family: 'Noto Sans KR', Arial, sans-serif; color:var(--yna-body); margin:0}
+.yna-header{background:#111; color:#fff; padding:18px 20px}
+.yna-logo{font-weight:700; font-size:18px}
+.container{max-width:1100px; margin:18px auto; padding:0 16px}
+.yna-article h1{font-size:32px; margin:12px 0}
+.yna-meta{color:var(--yna-muted); margin-bottom:8px}
+.yna-excerpt{font-size:18px; color:var(--yna-muted)}
+.yna-body p{line-height:1.7}
+.yna-footer{color:var(--yna-muted); text-align:center; padding:24px 0}
+.yna-grid{display:grid; grid-template-columns: 1fr 340px; gap:20px}
+.yna-list .card{display:flex; gap:12px; align-items:flex-start}
+.yna-thumb{width:140px; height:90px; object-fit:cover}
+.yna-hero{display:flex; gap:16px; align-items:center}
+.yna-hero .lead{font-size:20px}

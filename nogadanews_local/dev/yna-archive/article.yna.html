@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NOGADA NEWS — YNA-style Article</title>
+  <meta name="netlify:context" content="__CONTEXT__" />
+  <meta name="netlify:deploy_url" content="__DEPLOY_PRIME_URL__" />
+  <link rel="canonical" href="__DEPLOY_PRIME_URL__/article.html" />
+  <meta property="og:url" content="__DEPLOY_PRIME_URL__/article.html" />
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="yna-header"><div class="yna-logo">NOGADA NEWS</div></header>
+  <main class="container yna-article">
+    <article>
+      <p id="aTag" class="eyebrow">기사</p>
+      <h1 id="aTitle">기사 제목</h1>
+      <div id="aMeta" class="yna-meta">—</div>
+      <p id="aExcerpt" class="yna-excerpt"></p>
+      <div id="aBody" class="yna-body"></div>
+    </article>
+  </main>
+  <footer class="yna-footer">© NOGADA NEWS</footer>
+
+  <script>
+    const qs = (k)=> new URLSearchParams(location.search).get(k);
+    async function main(){
+      const id = qs('id');
+      if(!id){ document.getElementById('aTitle').textContent='기사 id 없음'; return; }
+      try{
+        const res = await fetch('/news.json', {cache:'no-store'});
+        if(!res.ok) throw new Error('news.json failed');
+        const data = await res.json();
+        const items = Array.isArray(data.articles)?data.articles:[];
+        const it = items.find(x=>x && x.id===id);
+        if(!it){ document.getElementById('aTitle').textContent='기사 없음'; return; }
+        document.getElementById('aTag').textContent = it.category || '기사';
+        document.getElementById('aTitle').textContent = it.title || '';
+        document.getElementById('aMeta').textContent = (it.date||'') + (it.readTime?(' · '+it.readTime):'');
+        document.getElementById('aExcerpt').textContent = it.excerpt || '';
+        document.getElementById('aBody').innerHTML = it.bodyHtml || '<p>본문 없음</p>';
+        // update og tags for browser shares
+        const ogt = document.querySelector('meta[property="og:title"]'); if(ogt) ogt.setAttribute('content', it.title||'');
+        const ogd = document.querySelector('meta[property="og:description"]'); if(ogd) ogd.setAttribute('content', it.excerpt||'');
+        const ogi = document.querySelector('meta[property="og:image"]'); if(ogi && it.cover) ogi.setAttribute('content', it.cover);
+      }catch(e){ console.error(e); }
+    }
+    main();
+  </script>
+</body>
+</html>
