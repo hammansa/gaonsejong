@@ -13,7 +13,15 @@ __pycache__/
 GEMINI_API_KEY.env
 .env
 .env.*
+.env.local
 
 # Do not commit built deploy output (optionally generated locally)
 deploy/netlify/
 deploy/github/
+
+# Ignore temporary article files created by pipeline
+article.tmp.json
+*.tmp.json
+
+# Local Netlify folder
+.netlify
