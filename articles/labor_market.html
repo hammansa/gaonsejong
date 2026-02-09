@@ -30,35 +30,105 @@
           <label>지역<br><input name="region" style="width:100%"></label><br>
           <label>내용<br><textarea name="body" rows="5" style="width:100%"></textarea></label><br>
           <label>연락처(선택)<br><input name="contact" style="width:100%"></label>
-          <input type="hidden" name="status" value="pending">
-          <button class="btn btn-primary" type="submit" style="margin-top:8px">등록 요청</button>
+          <input type="hidden" name="status" value="published">
+          <button class="btn btn-primary" type="submit" style="margin-top:8px">공고 올리기 (즉시 게시)</button>
         </form>
-        <p class="muted" style="margin-top:10px">제출 후 관리자의 승인절차가 진행됩니다. 파일 업로드는 관리자 문의 후 제공됩니다.</p>
+        <p class="muted" style="margin-top:10px">제출 즉시 사이트에 게시되며, 연락처는 게시글에 그대로 표시됩니다. 스팸/허위 게시물에 대한 책임은 게시자에게 있습니다.</p>
       </aside>
     </div>
 
-    <p style="margin-top:20px" class="muted">관리자: <a href="admin/labor.html">관리 페이지</a></p>
+    <p style="margin-top:20px" class="muted">관리자: <a href="admin/labor.html">관리 페이지</a> (선택적 관리용)</p>
   </div>
 
   <script>
-    async function load(){
-      try{
-        const res = await fetch('/data/labor_posts.json',{cache:'no-store'});
-        const j = await res.json();
-        const posts = Array.isArray(j)?j:j.posts||[];
-        const container = document.getElementById('posts');
-        container.innerHTML = '';
-        posts.filter(p=>p.status=='published').forEach(p=>{
-          const d = document.createElement('div'); d.className='card';
-          d.innerHTML = `<strong>${p.title}</strong><div class="muted">${p.agency} · ${p.region} · ${p.postedDate||''}</div><p>${(p.body||'').slice(0,180)}</p><a href="#">지원하기</a>`;
-          container.appendChild(d);
-        });
-        if(!container.children.length) container.innerHTML='<div class="muted">게시된 공고가 없습니다.</div>';
-      }catch(e){document.getElementById('posts').textContent='로드 실패: '+e.message}
-    }
-    load();
+    // Simple autonomous posting: posts are added to localStorage and rendered immediately.
+    // Posts are also submitted to Netlify Forms for record-keeping.
+    const STORAGE_KEY = 'nogada_labor_posts_v1';
 
-    // Netlify forms fallback: let the static form submit to Netlify (no JS required)
+    function renderPosts(list){
+      const container = document.getElementById('posts');
+      container.innerHTML = '';
+      list.forEach(p=>{
+        const d = document.createElement('div'); d.className='card';
+        d.innerHTML = `<strong>${escapeHtml(p.title)}</strong><div class="muted">${escapeHtml(p.agency)} · ${escapeHtml(p.region)} · ${escapeHtml(p.postedDate||'')}</div><p>${escapeHtml((p.body||'').slice(0,400))}</p><div><strong>연락처:</strong> ${escapeHtml(p.contact||'없음')}</div><div style="margin-top:8px"><button data-link class="btn">공유 링크 복사</button></div>`;
+        const btn = d.querySelector('[data-link]');
+        btn.addEventListener('click', ()=>{ const link = makeShareLink(p); navigator.clipboard.writeText(link).then(()=>alert('공유 링크가 복사되었습니다')); });
+        container.appendChild(d);
+      });
+      if(!container.children.length) container.innerHTML='<div class="muted">게시된 공고가 없습니다.</div>';
+    }
+
+    function escapeHtml(s){ return String(s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+
+    function loadInitial(){
+      // load static published posts from data file
+      fetch('/data/labor_posts.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
+        const staticPosts = Array.isArray(j)?j:(j.posts||[]);
+        const published = staticPosts.filter(p=>p.status=='published');
+        const local = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+        // newest first
+        const combined = local.concat(published).sort((a,b)=> (b.postedDate||'') > (a.postedDate||'') ? 1 : -1);
+        renderPosts(combined);
+      }).catch(e=>{
+        const local = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+        renderPosts(local);
+      });
+    }
+
+    function makeShareLink(post){
+      const payload = btoa(unescape(encodeURIComponent(JSON.stringify(post))));
+      return `${location.origin + location.pathname}#post=${payload}`;
+    }
+
+    function readSharedPostFromHash(){
+      const m = location.hash.match(/post=([^&]+)/);
+      if(!m) return null;
+      try{ const obj = JSON.parse(decodeURIComponent(escape(atob(m[1])))); return obj;}catch(e){return null}
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      loadInitial();
+
+      // If URL contains shared post, show it in modal-ish area
+      const shared = readSharedPostFromHash();
+      if(shared){
+        // prepend shared post to localStorage so it's visible
+        const local = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+        local.unshift(shared);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(local));
+        loadInitial();
+      }
+
+      const form = document.getElementById('postForm');
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const fd = new FormData(form);
+        const post = {
+          id: 'local-'+Date.now(),
+          agency: fd.get('agency'),
+          title: fd.get('title'),
+          region: fd.get('region'),
+          body: fd.get('body'),
+          contact: fd.get('contact'),
+          status: 'published',
+          postedDate: new Date().toISOString().slice(0,10)
+        };
+        // save to localStorage
+        const local = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+        local.unshift(post);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(local));
+        renderPosts(local.concat([]));
+
+        // create share link and copy
+        const link = makeShareLink(post);
+        navigator.clipboard.writeText(link).then(()=>alert('공고가 게시되었습니다. 공유 링크가 복사되었습니다.'));
+
+        // submit to Netlify forms in background for record-keeping
+        fetch(location.pathname, {method:'POST', body: fd}).catch(()=>{});
+
+        form.reset();
+      });
+    });
   </script>
 </body>
 </html>
