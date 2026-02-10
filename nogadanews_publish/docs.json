@@ -1,4 +1,10 @@
 {
-  "categories": ["All", "Strategy", "Roadmap", "IR", "MediaKit"],
+  "categories": [
+    "All",
+    "Strategy",
+    "Roadmap",
+    "IR",
+    "MediaKit"
+  ],
   "docs": []
 }

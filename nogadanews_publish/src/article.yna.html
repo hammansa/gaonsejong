@@ -39,7 +39,22 @@
         document.getElementById('aTitle').textContent = it.title || '';
         document.getElementById('aMeta').textContent = (it.date||'') + (it.readTime?(' · '+it.readTime):'');
         document.getElementById('aExcerpt').textContent = it.excerpt || '';
-        document.getElementById('aBody').innerHTML = it.bodyHtml || '<p>본문 없음</p>';
+        // Prefer external article page if available (articleUrl), otherwise fall back to bodyHtml/content
+        async function resolveBody(it){
+          if(it.articleUrl){
+            try{
+              const r = await fetch(it.articleUrl, {cache:'no-store'});
+              if(r.ok){
+                const txt = await r.text();
+                const m = txt.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+                return m ? m[1] : txt;
+              }
+            }catch(e){ console.warn('failed to fetch articleUrl', e); }
+          }
+          return it.bodyHtml || it.content || '<p>본문 없음</p>';
+        }
+
+        resolveBody(it).then(html=>{ document.getElementById('aBody').innerHTML = html; });
         // update og tags for browser shares
         const ogt = document.querySelector('meta[property="og:title"]'); if(ogt) ogt.setAttribute('content', it.title||'');
         const ogd = document.querySelector('meta[property="og:description"]'); if(ogd) ogd.setAttribute('content', it.excerpt||'');
@@ -48,5 +63,8 @@
     }
     main();
   </script>
+
+<!-- NOGADA_FOOTER -->
+<footer class="nogada-footer" style="border-top:1px solid #eee;padding:20px 0;text-align:center;color:#555;font-size:0.95em;background:#fafafa;">(노)동의 진실함을 믿는 사람들의 · (가)교가 되어주는 따뜻한 정보로 · (다)함께 내일을 만드는 신문<br>제보: 010-3012-9978</footer>
 </body>
 </html>
