@@ -203,7 +203,10 @@ ul { list-style: none; }
 .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
 .btn-outline:hover { background: var(--primary); color: #fff; }
 
-.btn-kakao { background: #fee500; color: #3c1e1e; }
+.btn-kakao {
+  background: #fee500;
+  color: #222; /* 노란 배경 위에서 잘 보이는 짙은 회색 텍스트 */
+}
 
 /* --- Grid & Cards --- */
 .section { padding: 80px 0; }

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>[속보] 제목을 입력하세요 | 노가다뉴스룸</title>
+  <style>
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #eeeeee;
+    }
+    .breaking-wrapper {
+      max-width: 640px;
+      margin: 40px auto;
+      background: #ffffff;
+      border: 2px solid #e74c3c;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.25);
+    }
+    .breaking-header {
+      background: #e74c3c;
+      color: #ffffff;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .breaking-header h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+    }
+    .live-dot {
+      height: 10px;
+      width: 10px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      display: inline-block;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+    .breaking-body {
+      padding: 26px 22px 26px;
+    }
+    .timestamp {
+      color: #e74c3c;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .main-headline {
+      font-size: 1.7rem;
+      color: #111111;
+      line-height: 1.4;
+      margin-bottom: 18px;
+      font-weight: 800;
+      word-break: keep-all;
+    }
+    .summary-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .summary-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #444444;
+      line-height: 1.6;
+    }
+    .summary-list li::before {
+      content: '■';
+      position: absolute;
+      left: 0;
+      color: #e74c3c;
+      font-size: 0.7rem;
+      top: 4px;
+    }
+    .action-call {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid #eeeeee;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #666666;
+    }
+    .action-call strong {
+      color: #000000;
+    }
+    @media (max-width: 480px) {
+      .breaking-wrapper {
+        margin: 20px 10px;
+      }
+      .main-headline {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="breaking-wrapper">
+  <div class="breaking-header">
+    <h2>BREAKING NEWS</h2>
+    <span class="live-dot"></span>
+  </div>
+
+  <div class="breaking-body">
+    <span class="timestamp">[2026-02-10 16:00 긴급]</span>
+    <h1 class="main-headline">속보 제목을 입력하세요</h1>
+
+    <ul class="summary-list">
+      <li><strong>상황:</strong> 어떤 일이 발생했는지 한 줄로 요약합니다.</li>
+      <li><strong>범위:</strong> 통제·영향을 받는 구역이나 대상 범위를 적습니다.</li>
+      <li><strong>대상:</strong> 일용직, 장비, 인근 주민 등 누구에게 영향을 주는지 적습니다.</li>
+      <li><strong>조치:</strong> 현재까지 내려진 공식 조치와 향후 예정된 절차를 정리합니다.</li>
+    </ul>
+
+    <div class="action-call">
+      현장 관계자는 <strong>"인명 피해 방지를 위한 선제적 조치"</strong>라고 설명했습니다.<br />
+      추가 속보가 들어오는 대로 전해드리겠습니다.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

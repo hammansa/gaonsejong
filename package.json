@@ -4,5 +4,8 @@
   "private": true,
   "scripts": {
     "build": "node scripts/build_site.js"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.0"
   }
 }

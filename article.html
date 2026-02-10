@@ -93,11 +93,18 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="muted">© 2026 NOGADA NEWS</div>
-      <div class="muted">발행인: 박상현</div>
-      <div class="muted">편집자: 최인석</div>
-      <div class="muted">도메인주소: <a href="https://www.nogadanews.com">www.nogadanews.com</a></div>
-      <div class="muted">지주회사: (주)누리온홀딩스</div>
+      <p class="site-slogan-footer" style="text-align:center;font-weight:700;margin:0 0 8px 0;color:var(--muted);">
+        (노)동의 진실함을 믿는 사람들의 · (가)교가 되어주는 따뜻한 정보로 · (다)함께 내일을 만드는 신문
+      </p>
+      <p style="color: var(--muted); margin:4px 0 0">
+        <strong>제보:</strong>
+        <a href="tel:01030129978">010-3012-9978</a>
+      </p>
+      <p style="color: var(--muted); margin:0">© 2026 NOGADA NEWS. All rights reserved.</p>
+      <p style="color: var(--muted); margin:4px 0 0">발행인: 박상현</p>
+      <p style="color: var(--muted); margin:4px 0 0">편집자: 최인석</p>
+      <p style="color: var(--muted); margin:4px 0 0">도메인주소: <a href="https://www.nogadanews.com">www.nogadanews.com</a></p>
+      <p style="color: var(--muted); margin:4px 0 0">지주회사: (주)누리온홀딩스</p>
     </div>
   </footer>
 
@@ -117,11 +124,17 @@
       if(!html) return "";
       let out = html;
 
-      // 1) "카카오 문의" / "자료실 보기" 링크가 함께 있는 한 줄/문단을 제거(완화형)
+      // 1) 기사 본문 안에 들어온 NOGADA_FOOTER(슬로건+제보 전화 푸터)를 제거
+      //    - news.json이나 article_pages/*.html 안에 포함된
+      //      <!-- NOGADA_FOOTER --> ~ </footer> 블록을 통째로 없앱니다.
+      out = out.replace(/<!--\s*NOGADA_FOOTER[\s\S]*?<\/footer>/gi, "");
+      out = out.replace(/<footer[^>]*class="nogada-footer"[\s\S]*?<\/footer>/gi, "");
+
+      // 2) "카카오 문의" / "자료실 보기" 링크가 함께 있는 한 줄/문단을 제거(완화형)
       out = out.replace(/<a[^>]*open\.kakao\.com[^>]*>.*?<\/a>\s*<a[^>]*>.*?자료실.*?<\/a>/gi, "");
       out = out.replace(/<a[^>]*>.*?카카오.*?문의.*?<\/a>\s*<a[^>]*docs(\.html)?[^>]*>.*?자료실.*?<\/a>/gi, "");
 
-      // 2) 자료실 링크가 /docs 로 되어 있으면 /docs.html로 교체(404 예방)
+      // 3) 자료실 링크가 /docs 로 되어 있으면 /docs.html로 교체(404 예방)
       out = out.replace(/href="https?:\/\/gsnews\.netlify\.app\/docs"/gi, 'href="https://gsnews.netlify.app/docs.html"');
       out = out.replace(/href="\/docs"/gi, 'href="docs.html"');
       out = out.replace(/href="docs"/gi, 'href="docs.html"');
@@ -236,8 +249,5 @@
       } catch (e) { /* ignore */ }
     })();
   </script>
-
-<!-- NOGADA_FOOTER -->
-<footer class="nogada-footer" style="border-top:1px solid #eee;padding:20px 0;text-align:center;color:#555;font-size:0.95em;background:#fafafa;">(노)동의 진실함을 믿는 사람들의 · (가)교가 되어주는 따뜻한 정보로 · (다)함께 내일을 만드는 신문<br>제보: 010-3012-9978</footer>
 </body>
 </html>
