@@ -1,8 +1,9 @@
 [build]
-  # If you already generate a publish bundle locally, set this to the folder path
-  # that contains the static site to serve. We use `nogadanews_publish` here.
-  publish = "nogadanews_publish"
-  # No build command required for static bundle. If you build from source, set the command.
+  # Publish the project root so Netlify serves the existing static HTML files.
+  # Change this if you have a build step that outputs to a different folder.
+  publish = "."
+  # No build command required for static site in repository. Set a command
+  # (e.g., "npm run build") if you add a build step that generates output.
   command = ""
 
 [context.production.environment]
