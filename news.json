@@ -101,6 +101,82 @@
       "thumbnailUrl": "https://cheerful-lily-275b65.netlify.app/assets/thumbs/site.jpg",
       "summary": "제보는 사실 확인의 출발점입니다. 노가다뉴스가 제보를 기사로 바꿀 때 지키는 기본 원칙과 절차를 공개합니다.",
       "bodyMarkdown": "제보는 감정의 호소가 아니라, 확인해야 할 사실의 시작입니다. 빠르게 전하되, 확인 없이 단정하면 또 다른 피해가 생깁니다. 노가다뉴스는 ‘현장의 진실’을 다루는 만큼, 더 조심스럽고 더 투명한 원칙을 세웁니다. [Source](https://cheerful-lily-275b65.netlify.app/)\n\n노가다뉴스가 독자에게 약속하는 것은 두 가지입니다. **속도**와 **정확성**. 다만 이 둘은 서로 충돌하기도 합니다. 빨리 쓰면 놓치기 쉽고, 꼼꼼히 확인하면 늦어지기 쉽습니다. 그래서 우리는 제보가 들어왔을 때 아래 순서로 움직입니다.\n\n## 제보 → 기사화 기본 프로세스(간단)\n- 1단계: 제보 내용의 핵심 정리(언제/어디서/무슨 일)\n- 2단계: 확인 가능한 자료 요청(문자·입금·공지·사진 등)\n- 3단계: 당사자·관계자 입장 확인(가능한 범위에서)\n- 4단계: 독자에게 필요한 정보로 재구성(현장에 어떤 의미인지)\n- 5단계: 후속 제보 연결(비슷한 사례가 있는지)\n\n이 과정의 목적은 “누구 편을 드는 것”이 아니라, **노동의 가치를 기록하고 권익을 지키며 현장을 연결하는 것**입니다. 그래서 단정은 늦게 하더라도, 필요한 안내는 빠르게 하겠습니다. [Source](https://cheerful-lily-275b65.netlify.app/)\n\n## 마무리\n노가다뉴스는 현장의 목소리가 묻히지 않도록, 그리고 같은 문제가 반복되지 않도록, 기록을 쌓겠습니다. 제보는 언제든지 열려 있습니다. [Source](https://cheerful-lily-275b65.netlify.app/)\n\n- 뉴스룸: https://cheerful-lily-275b65.netlify.app/newsroom\n- 제보하기: https://open.kakao.com/"
+    },
+    {
+      "id": "nogada-2026-02-10-001",
+      "status": "ready",
+      "language": "ko-KR",
+      "title": "취재수첩: 현장 기록의 사소한 차이가 큰 결과를 만든다",
+      "subtitle": "작은 메모가 반복되는 피해를 막는 첫걸음",
+      "slug": "chit-jae-notebook-field-notes",
+      "category": "취재수첩",
+      "tags": [
+        "취재수첩",
+        "현장기록",
+        "사례"
+      ],
+      "author": "NOGADA NEWS 취재팀",
+      "publishedAt": "2026-02-10",
+      "thumbnailUrl": "https://cheerful-lily-275b65.netlify.app/assets/thumbs/launch.jpg",
+      "summary": "작은 기록 습관이 반복되는 불합리를 끊어냅니다. 현장에서 쓸 수 있는 간단한 팁을 정리했습니다.",
+      "bodyMarkdown": "현장에서의 기록은 종종 사소해 보이지만, 사건·사고의 연쇄를 끊는 핵심 단서가 됩니다. 이 글에서는 취재 수첩을 활용해 실무자가 당장 실천할 수 있는 포인트를 정리합니다.\n\n- 출근·퇴근 시간 기록\n- 지시/변경 사항 메모\n- 지급 내역 캡처 보관\n\n작은 습관이 누적되어 큰 차이를 만듭니다."
+    },
+    {
+      "id": "nogada-2026-02-10-002",
+      "status": "ready",
+      "language": "ko-KR",
+      "title": "인터뷰: 현장 노동자 A씨가 전하는 실태와 요청",
+      "subtitle": "익명 제보자의 목소리 — 현실과 필요한 지원",
+      "slug": "interview-worker-aos-story",
+      "category": "인터뷰",
+      "tags": [
+        "인터뷰",
+        "현장",
+        "제보"
+      ],
+      "author": "NOGADA NEWS 인터뷰팀",
+      "publishedAt": "2026-02-10",
+      "thumbnailUrl": "https://cheerful-lily-275b65.netlify.app/assets/thumbs/rights.jpg",
+      "summary": "제보자가 전하는 현장의 현실과 그가 바라는 변화에 대해 들어봤습니다.",
+      "bodyMarkdown": "이 인터뷰는 제보자의 동의를 받아 요약·편집되었습니다. 현장에서는 작은 안전 미비가 반복적으로 발생하고, 임금 체불의 위험이 상존한다고 합니다. 제보자는 ‘우리가 기록하면 달라질 수 있다’고 말했습니다.\n\n(본문은 제보 내용 확인 절차에 따라 핵심만 발췌해 전달합니다.)"
+    },
+    {
+      "id": "nogada-2026-02-10-003",
+      "status": "ready",
+      "language": "ko-KR",
+      "title": "칼럼: 노동의 존엄과 기록의 힘",
+      "subtitle": "왜 우리는 기록해야 하는가",
+      "slug": "column-dignity-records",
+      "category": "칼럼",
+      "tags": [
+        "칼럼",
+        "노동",
+        "기록"
+      ],
+      "author": "NOGADA NEWS 칼럼니스트",
+      "publishedAt": "2026-02-10",
+      "thumbnailUrl": "https://cheerful-lily-275b65.netlify.app/assets/thumbs/site.jpg",
+      "summary": "기록은 단지 증거가 아니라, 노동의 존엄을 유지하는 실천입니다. 칼럼에서 그 의미를 되짚습니다.",
+      "bodyMarkdown": "기록은 권리의 시작입니다. 이 칼럼은 노동 현장에서 기록이 어떤 윤리적·실천적 의미를 갖는지 고찰합니다. 기록은 누군가를 고발하는 도구가 아니라, 스스로를 지키는 방법입니다."
+    },
+    {
+      "id": "nogada-2026-02-10-004",
+      "status": "ready",
+      "language": "ko-KR",
+      "title": "속보: OO공사 현장 부분 통제 조치 발생",
+      "subtitle": "현장 안전 문제로 인근 통제 조치 소식",
+      "slug": "breaking-oo-construction-control",
+      "category": "속보",
+      "tags": [
+        "속보",
+        "안전",
+        "통제"
+      ],
+      "author": "NOGADA NEWS 속보팀",
+      "publishedAt": "2026-02-10",
+      "thumbnailUrl": "https://cheerful-lily-275b65.netlify.app/assets/thumbs/launch.jpg",
+      "summary": "오늘 오전 OO공사 현장에서 안전 문제로 일부 통제 조치가 내려졌다는 보고가 접수되었습니다.",
+      "bodyMarkdown": "오늘 오전 OO공사 현장에서 작업 중 일부 구조물이 손상되는 상황이 보고되어 현장 일부가 통제되었습니다. 노가다뉴스는 현장 관계자와 추가 확인 중입니다. 속보는 확인되는 대로 업데이트하겠습니다."
     }
   ]
 }
