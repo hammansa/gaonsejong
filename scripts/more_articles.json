@@ -10,7 +10,7 @@
     "tags": ["취재수첩", "현장기록", "사례"],
     "author": "NOGADA NEWS 취재팀",
     "publishedAt": "2026-02-10",
-    "thumbnailUrl": "https://cheerful-lily-275b65.netlify.app/assets/thumbs/launch.jpg",
+    "thumbnailUrl": "/assets/thumbs/launch.jpg",
     "summary": "작은 기록 습관이 반복되는 불합리를 끊어냅니다. 현장에서 쓸 수 있는 간단한 팁을 정리했습니다.",
     "bodyMarkdown": "현장에서의 기록은 종종 사소해 보이지만, 사건·사고의 연쇄를 끊는 핵심 단서가 됩니다. 이 글에서는 취재 수첩을 활용해 실무자가 당장 실천할 수 있는 포인트를 정리합니다.\n\n- 출근·퇴근 시간 기록\n- 지시/변경 사항 메모\n- 지급 내역 캡처 보관\n\n작은 습관이 누적되어 큰 차이를 만듭니다."
   },
@@ -25,7 +25,7 @@
     "tags": ["인터뷰", "현장", "제보"],
     "author": "NOGADA NEWS 인터뷰팀",
     "publishedAt": "2026-02-10",
-    "thumbnailUrl": "https://cheerful-lily-275b65.netlify.app/assets/thumbs/rights.jpg",
+    "thumbnailUrl": "/assets/thumbs/rights.jpg",
     "summary": "제보자가 전하는 현장의 현실과 그가 바라는 변화에 대해 들어봤습니다.",
     "bodyMarkdown": "이 인터뷰는 제보자의 동의를 받아 요약·편집되었습니다. 현장에서는 작은 안전 미비가 반복적으로 발생하고, 임금 체불의 위험이 상존한다고 합니다. 제보자는 ‘우리가 기록하면 달라질 수 있다’고 말했습니다.\n\n(본문은 제보 내용 확인 절차에 따라 핵심만 발췌해 전달합니다.)"
   },
@@ -40,7 +40,7 @@
     "tags": ["칼럼", "노동", "기록"],
     "author": "NOGADA NEWS 칼럼니스트",
     "publishedAt": "2026-02-10",
-    "thumbnailUrl": "https://cheerful-lily-275b65.netlify.app/assets/thumbs/site.jpg",
+    "thumbnailUrl": "/assets/thumbs/site.jpg",
     "summary": "기록은 단지 증거가 아니라, 노동의 존엄을 유지하는 실천입니다. 칼럼에서 그 의미를 되짚습니다.",
     "bodyMarkdown": "기록은 권리의 시작입니다. 이 칼럼은 노동 현장에서 기록이 어떤 윤리적·실천적 의미를 갖는지 고찰합니다. 기록은 누군가를 고발하는 도구가 아니라, 스스로를 지키는 방법입니다."
   },
@@ -55,7 +55,7 @@
     "tags": ["속보", "안전", "통제"],
     "author": "NOGADA NEWS 속보팀",
     "publishedAt": "2026-02-10",
-    "thumbnailUrl": "https://cheerful-lily-275b65.netlify.app/assets/thumbs/launch.jpg",
+    "thumbnailUrl": "/assets/thumbs/launch.jpg",
     "summary": "오늘 오전 OO공사 현장에서 안전 문제로 일부 통제 조치가 내려졌다는 보고가 접수되었습니다.",
     "bodyMarkdown": "오늘 오전 OO공사 현장에서 작업 중 일부 구조물이 손상되는 상황이 보고되어 현장 일부가 통제되었습니다. 노가다뉴스는 현장 관계자와 추가 확인 중입니다. 속보는 확인되는 대로 업데이트하겠습니다."
   }
