@@ -1,0 +1,97 @@
+name: GAON SEJONG News Pipeline
+
+on:
+  schedule:
+    - cron: "30 22 * * *"  # KST 07:30
+    - cron: "30 4 * * *"   # KST 13:30
+    - cron: "30 10 * * *"  # KST 19:30
+  workflow_dispatch: {}
+
+jobs:
+  build-news:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        genspark_model: ["genspark-default-1", "text-bison-001"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run pipeline (model: ${{ matrix.genspark_model }})
+        env:
+          GENSPARK_API_KEY: ${{ secrets.GENSPARK_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          GENSPARK_MODEL: ${{ matrix.genspark_model }}
+          GENSPARK_BASE_URL: ${{ secrets.GENSPARK_BASE_URL }}
+        run: |
+          npm run run-pipeline || true
+
+      - name: Upload discovered feeds log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: discovered-feeds-${{ matrix.genspark_model }}
+          path: logs/discovered_feeds.csv
+
+      - name: Upload news.json
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-${{ matrix.genspark_model }}
+          path: news.json
+
+  propose-sources-update:
+    needs: build-news
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run pipeline once to ensure updated sources
+        env:
+          GENSPARK_API_KEY: ${{ secrets.GENSPARK_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          GENSPARK_MODEL: "genspark-default-1"
+          GENSPARK_BASE_URL: ${{ secrets.GENSPARK_BASE_URL }}
+        run: |
+          npm run run-pipeline || true
+
+      - name: Check for changes to config/sources.yml
+        id: git-check
+        run: |
+          git config user.name "gaonsejong-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          git diff --name-only --cached | tee changed.txt || true
+          if grep -q "config/sources.yml" changed.txt; then echo "changed=1" > result.txt; else echo "changed=0" > result.txt; fi
+          echo "changed=$(cat result.txt)" > result2.txt
+          echo "::set-output name=changed::$(cat result.txt)"
+
+      - name: Create PR for sources.yml changes
+        if: steps.git-check.outputs.changed == '1'
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update config/sources.yml (auto-discovered feeds)"
+          branch: "auto/update-sources-${{ github.run_id }}"
+          title: "Auto-update sources.yml (discovered feeds)"
+          body: |-
+            This PR was generated automatically by the pipeline to propose updated RSS feed URLs discovered during the run. Please review the changes before merging.
+          base: ${{ github.ref_name }}

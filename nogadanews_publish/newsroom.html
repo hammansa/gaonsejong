@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>뉴스룸 | 노가다뉴스</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="뉴스룸 | 노가다뉴스" />
+  <meta property="og:description" content="노가다뉴스 최신 기사 모음" />
+  <meta property="og:image" content="assets/worker.jpg" />
+
+  <!-- Netlify placeholders (build-time replace) -->
+  <meta name="netlify:site" content="true" />
+  <meta name="netlify:context" content="__CONTEXT__" />
+  <meta name="netlify:deploy_url" content="__DEPLOY_PRIME_URL__" />
+
+  <!-- Canonical/OG URL -->
+  <link rel="canonical" href="__DEPLOY_PRIME_URL__/newsroom.html" />
+  <meta property="og:url" content="__DEPLOY_PRIME_URL__/newsroom.html" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+
+<body>
+  <header class="site-header glass">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="/assets/logo.png" alt="노가다뉴스 로고" />
+        <span class="brand-text">노가다뉴스</span>
+      </a>
+
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="index.html">홈</a>
+        <a href="newsroom.html">뉴스룸</a>
+        <a href="newsroom.html#rights">권익보호</a>
+        <a href="newsroom.html#community">현장커뮤니티</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Newsroom</div>
+          <h1 class="section-title">현장의 진실을 전합니다</h1>
+        </div>
+        <a class="btn btn-outline" href="index.html">홈으로</a>
+      </div>
+
+      <!-- 필터(선택) -->
+      <div class="glass" style="padding: 16px; margin-bottom: 18px;">
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn btn-outline" data-filter="all" type="button">전체</button>
+          <button class="btn btn-outline" data-filter="현장소식" type="button">현장소식</button>
+          <button class="btn btn-outline" data-filter="권익보호" type="button">권익보호</button>
+          <button class="btn btn-outline" data-filter="창간특집" type="button">창간특집</button>
+          <button class="btn btn-outline" data-filter="취재수첩" type="button">취재수첩</button>
+          <button class="btn btn-outline" data-filter="인터뷰" type="button">인터뷰</button>
+          <button class="btn btn-outline" data-filter="칼럼" type="button">칼럼</button>
+          <button class="btn btn-outline" data-filter="속보" type="button">속보</button>
+        </div>
+      </div>
+
+      <div id="newsGrid" class="yna-grid">
+        <div class="glass card">
+          <div class="card-title">불러오는 중…</div>
+          <div class="card-desc">news.json을 불러와 뉴스룸을 구성합니다.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p style="color: var(--muted); margin:0">© 2026 NOGADA NEWS. All rights reserved.</p>
+      <p style="color: var(--muted); margin:4px 0 0">발행인: 박상현</p>
+      <p style="color: var(--muted); margin:4px 0 0">편집자: 최인석</p>
+      <p style="color: var(--muted); margin:4px 0 0">도메인주소: <a href="https://www.nogadanews.com">www.nogadanews.com</a></p>
+      <p style="color: var(--muted); margin:4px 0 0">지주회사: (주)누리온홀딩스</p>
+    </div>
+  </footer>
+
+  <script>
+    // Expose Netlify placeholders to JS (optional)
+    (function () {
+      var deployMeta = document.querySelector('meta[name="netlify:deploy_url"]');
+      var contextMeta = document.querySelector('meta[name="netlify:context"]');
+      window.NETLIFY_DEPLOY_URL = deployMeta ? deployMeta.getAttribute('content') : '';
+      window.NETLIFY_CONTEXT = contextMeta ? contextMeta.getAttribute('content') : '';
+    })();
+
+    function normalizeCategory(c) { return (c || '').replace(/\s+/g, '').trim(); }
+    function getCategoryCoverMap() {
+      return {
+        "창간특집": "assets/thumbs/launch.jpg",
+        "권익보호": "assets/thumbs/rights.jpg",
+        "현장소식": "assets/thumbs/site.jpg",
+        "뉴스룸": "assets/newsroom.png",
+        "기획": "assets/plan.png",
+        "노동권익": "assets/7.png",
+        "취재수첩": "assets/thumbs/notebook.jpg",
+        "인터뷰": "assets/interview.png",
+        "칼럼": "assets/column.png",
+        "속보": "assets/thumbs/breaking.jpg"
+      };
+    }
+    function getCover(a) {
+      if (a && a.cover) return a.cover;
+      var map = getCategoryCoverMap();
+      var key = normalizeCategory(a && a.category);
+      return map[key] || "assets/worker.jpg";
+    }
+    function esc(s) {
+      return String(s || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    let ALL = [];
+    let CURRENT_FILTER = "all";
+
+    function render(list) {
+      const grid = document.getElementById("newsGrid");
+      if (!list.length) {
+        grid.innerHTML = `
+          <div class="glass card">
+            <div class="card-title">게시된 기사가 없습니다.</div>
+            <div class="card-desc">필터 조건에 맞는 기사가 없습니다.</div>
+          </div>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(a => {
+        const href = `article.html?id=${encodeURIComponent(a.id || "")}`;
+        const cover = esc(getCover(a));
+        const category = esc(a.category || "");
+        const title = esc(a.title || "");
+        const excerpt = esc(a.excerpt || "");
+        const meta = `${esc(a.date || "")} · ${esc(a.readTime || "")}`;
+
+        return `
+          <a class="glass card news-card" href="${href}">
+            <div class="news-card-img" style="width:100%; height:200px; overflow:hidden; border-radius:12px;">
+              <img src="${cover}" alt="${category} 썸네일" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
+            </div>
+            <div style="margin-top: 14px; color: var(--muted); font-weight: 800; font-size: 13px;">
+              ${category}
+            </div>
+            <div class="card-title" style="margin-top: 8px; color: var(--text);">
+              ${title}
+            </div>
+            <div class="card-desc" style="margin-top: 10px;">
+              ${excerpt}
+            </div>
+            <div style="margin-top: 14px; color: var(--muted); font-size: 13px;">
+              ${meta}
+            </div>
+          </a>`;
+      }).join("");
+    }
+
+    function applyFilter() {
+      if (CURRENT_FILTER === "all") return render(ALL);
+      const key = normalizeCategory(CURRENT_FILTER);
+      render(ALL.filter(a => normalizeCategory(a.category) === key));
+    }
+
+    async function loadNews() {
+      try {
+        const res = await fetch("news.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("news.json fetch failed: " + res.status);
+        const data = await res.json();
+        ALL = Array.isArray(data.articles) ? data.articles : [];
+        applyFilter();
+      } catch (err) {
+        const grid = document.getElementById("newsGrid");
+        grid.innerHTML = `
+          <div class="glass card">
+            <div class="card-title">기사를 불러오는 중 오류가 발생했습니다.</div>
+            <div class="card-desc">${esc(err && err.message ? err.message : String(err))}</div>
+          </div>`;
+      }
+    }
+
+    document.addEventListener("click", function (e) {
+      const btn = e.target.closest("button[data-filter]");
+      if (!btn) return;
+      CURRENT_FILTER = btn.getAttribute("data-filter") || "all";
+      applyFilter();
+    });
+
+    loadNews();
+  </script>
+</body>
+</html>

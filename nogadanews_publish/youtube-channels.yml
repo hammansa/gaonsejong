@@ -1,0 +1,220 @@
+# This file was moved to config/youtube-channels.yml for action-friendly usage.
+# Archived copy available at dev/archives/youtube-channels.yml
+
+# NOTE: Keep `config/youtube-channels.yml` as the canonical source for Actions.
+    notes: "Think tank 영상(웨비나·토론). 기사에 영상 링크+공식 문서 첨부 권장."
+
+  - channel_name: "TelecomTV"
+    channel_url: "https://www.youtube.com/user/TelecomTV"
+    type: "media"
+    language: "en"
+    priority: 2
+    must_keywords:
+      - "telecom"
+      - "5G"
+      - "6G"
+      - "operators"
+      - "network"
+      - "spectrum"
+      - "roaming"
+      - "satcom"
+    block_keywords:
+      - "investment advice"
+      - "sensational"
+    clip_policy: "transcript_only"
+    notes: "산업 전문지 계열 영상(인터뷰·컨퍼런스). 공식 보도자료/규격 링크 병기 권장."
+
+  - channel_name: "NASA"
+    channel_url: "https://www.youtube.com/user/NASAtelevision"
+    type: "institution"
+    language: "en"
+    priority: 1
+    must_keywords:
+      - "mission"
+      - "launch"
+      - "science"
+      - "satellite"
+      - "technology"
+      - "payload"
+    block_keywords:
+      - "speculation"
+    clip_policy: "quote_ok"
+    notes: "공식 기관 채널 — 보도자료/미션 페이지 링크 함께 첨부."
+
+  - channel_name: "ESA"
+    channel_url: "https://www.youtube.com/user/ESA"
+    type: "institution"
+    language: "en"
+    priority: 1
+    must_keywords:
+      - "space"
+      - "satellite"
+      - "launch"
+      - "europe"
+      - "mission"
+    block_keywords:
+      - "opinion"
+    clip_policy: "quote_ok"
+    notes: "유럽우주국 공식 채널. 공식 문서/보도자료 병기 권장."
+
+  - channel_name: "GSMA (Digital)
+    "
+    channel_url: "https://www.youtube.com/user/gsma"
+    type: "thinktank"
+    language: "en"
+    priority: 3
+    must_keywords:
+      - "mobile"
+      - "operators"
+      - "policy"
+      - "spectrum"
+      - "standards"
+    block_keywords:
+      - "sales pitch"
+    clip_policy: "summary_only"
+    notes: "GSMA 세미나·보고서 관련 영상. 공식 보고서 링크 병기 권장."
+
+  - channel_name: "IEEE Spectrum"
+    channel_url: "https://www.youtube.com/user/ieeespectrum"
+    type: "media"
+    language: "en"
+    priority: 3
+    must_keywords:
+      - "technology"
+      - "research"
+      - "satellite"
+      - "telecom"
+      - "standards"
+    block_keywords:
+      - "clickbait"
+    clip_policy: "transcript_only"
+    notes: "기술 심층 해설 채널 — 기술적 근거(논문/규격) 링크 권장."
+
+  - channel_name: "Telecoms Korea (예시 - 채널명/URL 입력하세요)"
+    channel_url: ""
+    type: "explainer"
+    language: "ko"
+    priority: 3
+    must_keywords:
+      - "주파수"
+      - "과기정통부"
+      - "통신정책"
+      - "5G"
+      - "위성"
+    block_keywords:
+      - "루머"
+      - "투자권유"
+    clip_policy: "transcript_only"
+    notes: "국내 해설형 / 기관·전문가 인터뷰 등 — 채널 URL을 입력해 주세요."
+
+keywords:
+  core:
+    - "satellite"
+    - "6G"
+    - "AI"
+    - "spectrum"
+    - "standards"
+  issues:
+    - "standardization"
+    - "spectrum allocation"
+    - "regulation"
+    - "security"
+    - "supply chain"
+    - "certification"
+    - "testing"
+  vertical_defense:
+    - "defense"
+    - "military comms"
+    - "ISR"
+  vertical_maritime:
+    - "maritime"
+    - "shipping"
+    - "port"
+    - "maritime safety"
+  vertical_aviation:
+    - "aviation"
+    - "air traffic"
+    - "air safety"
+    - "regulation"
+  vertical_disaster:
+    - "disaster relief"
+    - "emergency comms"
+    - "resilience"
+  korea_specific:
+    - "과기정통부"
+    - "정책브리핑"
+    - "전파법"
+
+publishing:
+  timezone: "Asia/Seoul"
+  runs_per_day: 3
+  run_times:
+    - "07:30"
+    - "13:30"
+    - "19:30"
+  articles_per_day_min: 3
+  articles_per_day_max: 5
+  global_ratio_target: "0.60-0.70"
+
+safety:
+  hard_block_topics:
+    - "insider trading"
+    - "personal data leakage"
+    - "unverified rumors"
+  soft_block_keywords:
+    - "confirmed"    # 과장 표현은 편집 검토 권장
+    - "exclusive"
+  citation_required: true
+
+Copyyoutube_channels:
+  - channel_name: ""
+    channel_url: ""        # 예: https://www.youtube.com/@____
+    type: ""               # institution | thinktank | company | explainer | media
+    language: ""           # en | ko | ja | etc
+    priority: 3            # 1~5
+
+    must_keywords:         # 이 채널에서 반드시 잡아낼 키워드(5~15개 권장)
+      - ""
+    block_keywords:        # 제외할 키워드(과장/루머/투자선동 등)
+      - ""
+
+    clip_policy: ""        # transcript_only | summary_only | quote_ok
+    notes: ""              # 예: “AI-RAN 해설 강점”, “위성 정책 웨비나 많음"
+
+Copykeywords:
+  core:                 # 위성/6G/AI 핵심
+    - ""
+  issues:               # 표준/주파수/규제/보안/공급망/시험/인증 등
+    - ""
+
+  vertical_defense:     # 방산/안보
+    - ""
+  vertical_maritime:    # 해양/조선/항만/해상안전
+    - ""
+  vertical_aviation:    # 항공/항행/안전/규정
+    - ""
+  vertical_disaster:    # 재난안전/긴급통신/복구
+    - ""
+
+  korea_specific:       # (선택) 국내 고유 키워드/기관명/사업명
+    - ""
+
+Copypublishing:
+  timezone: "Asia/Seoul"
+  runs_per_day: 3                 # 2 또는 3
+  run_times:
+    - "07:30"
+    - "13:30"
+    - "19:30"
+  articles_per_day_min: 3
+  articles_per_day_max: 5
+  global_ratio_target: "0.60-0.70"
+
+Copysafety:
+  citation_required: true         # 출처 링크 없으면 발행 금지(권장)
+
+  hard_block_topics:
+    - ""     # 예: 내부자정보, 미확인 루머, 개인 신상, 불법행위 조장 등
+
+  soft_block_keywords:
+    - ""     # 예: “확정”, “단독” 같은 과장 표현(선호에 따라)

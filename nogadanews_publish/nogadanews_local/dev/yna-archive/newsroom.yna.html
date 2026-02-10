@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>노가다뉴스 — 뉴스룸 (YNA-style)</title>
+  <link rel="stylesheet" href="/src/style.yna.css">
+</head>
+<body>
+  <header class="yna-header"><div class="yna-logo">노가다뉴스</div></header>
+  <main class="container">
+    <h2>전체 기사</h2>
+    <div class="yna-grid" id="grid"></div>
+  </main>
+  <footer class="yna-footer">© NOGADA NEWS</footer>
+  <script>
+    async function init(){
+      try{
+        const r = await fetch('/news.json',{cache:'no-store'});
+        const j = await r.json();
+        const list = Array.isArray(j.articles)?j.articles:j;
+        const grid = document.getElementById('grid');
+        list.forEach(it=>{
+          const c = document.createElement('div'); c.className='card';
+          c.innerHTML = `<img class="yna-thumb" src="${it.cover||'/assets/placeholder.png'}"><div><a href="/article.html?id=${it.id}">${it.title}</a><div class="meta">${it.date||''}</div></div>`;
+          grid.appendChild(c);
+        });
+      }catch(e){console.error(e);}    }
+    init();
+  </script>
+</body>
+</html>

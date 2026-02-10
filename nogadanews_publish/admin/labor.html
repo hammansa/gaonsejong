@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>인력시장 관리 | 노가다뉴스</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>table{width:100%;border-collapse:collapse}th,td{padding:8px;border-bottom:1px solid #eee}</style>
+</head>
+<body>
+  <div class="container" style="padding:24px">
+    <h1>인력시장 관리</h1>
+    <p class="muted">(초안) 관리자는 이 페이지에서 게시 요청을 승인/거부할 수 있습니다. Netlify Identity 또는 다른 인증을 권장합니다.</p>
+    <div id="list">로딩 중…</div>
+  </div>
+
+  <script>
+    async function load(){
+      const res = await fetch('/data/labor_posts.json',{cache:'no-store'});
+      const posts = await res.json();
+      const div = document.getElementById('list');
+      div.innerHTML = '<table><thead><tr><th>기관</th><th>제목</th><th>상태</th><th>행동</th></tr></thead><tbody>' + posts.map(p=>`<tr><td>${p.agency}</td><td>${p.title}</td><td>${p.status}</td><td><button data-id="${p.id}" class="btn-approve">승인</button> <button data-id="${p.id}" class="btn-reject">거부</button></td></tr>`).join('') + '</tbody></table>';
+      document.querySelectorAll('.btn-approve').forEach(b=>b.addEventListener('click',e=>alert('승인 기능은 서버리스 함수로 구현 필요: id='+b.dataset.id)));
+      document.querySelectorAll('.btn-reject').forEach(b=>b.addEventListener('click',e=>alert('거부 기능은 서버리스 함수로 구현 필요: id='+b.dataset.id)));
+    }
+    load();
+  </script>
+</body>
+</html>

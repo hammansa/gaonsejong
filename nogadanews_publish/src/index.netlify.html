@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>노가다뉴스 | 노동의 가치를 다함께</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="노가다뉴스" />
+  <meta property="og:description" content="노력하는 사람들의 가치 있는 땀방울로 다 함께 만드는 세상" />
+  <meta property="og:image" content="assets/worker.jpg" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Netlify-specific meta/snippets -->
+  <!-- These placeholders can be replaced at build time with Netlify env vars if you run a build step. -->
+  <meta name="netlify:site" content="true" />
+  <!-- Build context (e.g. production, branch-deploy, deploy-preview) -->
+  <meta name="netlify:context" content="__CONTEXT__" />
+  <!-- Deploy URL for preview sites: replace __DEPLOY_PRIME_URL__ at build-time if desired -->
+  <meta name="netlify:deploy_url" content="__DEPLOY_PRIME_URL__" />
+  <!-- Canonical/OG URL placeholder that CI/build can replace with actual deploy URL -->
+  <meta property="og:url" content="__DEPLOY_PRIME_URL__/" />
+  <link rel="canonical" href="__DEPLOY_PRIME_URL__/" />
+
+  <!-- Optional: Netlify Analytics / Identity setup hints -->
+  <!-- Identity widget loaded when using Netlify Identity (enable via Netlify dashboard) -->
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- End Netlify-specific meta/snippets -->
+</head>
+<body class="page-home">
+  <div class="space-video" aria-hidden="true">
+    <video class="space-video__el" autoplay muted playsinline loop preload="auto" aria-hidden="true" tabindex="-1">
+      <source src="assets/space-warp.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="/assets/logo.png" alt="노가다뉴스 로고" />
+      <span class="brand-text">노가다뉴스</span>
+    </a>
+
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="index.html">홈</a>
+      <a href="newsroom.html">뉴스룸</a>
+      <a href="newsroom.html#rights">권익보호</a>
+      <a href="newsroom.html#community">현장커뮤니티</a>
+    </nav>
+  </div>
+
+  <div class="universe" aria-hidden="true">
+    <script>
+      // XSS 방지용 최소 escape
+      const esc = (s) => (s ?? "").toString().replace(/[&<>\"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
+
+      // 카테고리 → 기본 썸네일 자동 매핑
+      function normalizeCategory(cat){ return (cat ?? "").toString().trim(); }
+      function getCategoryCoverMap(){
+        return {
+          "창간특집": "assets/thumbs/launch.jpg",
+          "권익보호": "assets/thumbs/rights.jpg",
+          "현장소식": "assets/thumbs/site.jpg",
+          "취재수첩": "assets/thumbs/notebook.jpg",
+          "인터뷰": "assets/thumbs/interview.jpg",
+          "칼럼": "assets/thumbs/column.jpg",
+          "속보": "assets/thumbs/breaking.jpg"
+        };
+      }
+      function getCover(article){
+        if (article && article.cover) return article.cover;
+        const cat = normalizeCategory(article?.category);
+        const map = getCategoryCoverMap();
+        if (cat && map[cat]) return map[cat];
+        return "assets/worker.jpg";
+      }
+
+      async function renderLatest3(){
+        const grid = document.getElementById("latest3Grid");
+        try{
+          const res = await fetch("news.json", { cache: "no-store" });
+          if(!res.ok) throw new Error("news.json not found");
+          const data = await res.json();
+          const articles = (data.articles || []).slice(0, 3);
+          if(!articles.length){ grid.innerHTML = '<div class="muted">게시된 기사가 없습니다.</div>'; return; }
+
+          grid.innerHTML = articles.map(a => `
+            <a class="latest3-card glass" href="article.html?id=${encodeURIComponent(a.id)}">
+              <div class="latest3-thumb">
+                <img src="${esc(getCover(a))}" alt="" loading="lazy" />
+              </div>
+              <div class="latest3-body">
+                <div class="latest3-meta">
+                  <span class="latest3-cat">${esc(a.category)}</span>
+                  <span class="latest3-dot">•</span>
+                  <span class="latest3-date">${esc(a.date)}</span>
+                  <span class="latest3-dot">•</span>
+                  <span class="latest3-read">${esc(a.readTime)}</span>
+                </div>
+                <h3 class="latest3-title">${esc(a.title)}</h3>
+                <p class="latest3-excerpt">${esc(a.excerpt)}</p>
+                <div class="latest3-cta">
+                  <span class="btn btn-ghost btn-sm">기사 읽기 →</span>
+                </div>
+              </div>
+            </a>
+          `).join("");
+        }catch(e){ console.error(e); grid.innerHTML = '<div class="muted">최신 뉴스를 불러오지 못했습니다.</div>'; }
+      }
+
+      async function main() {
+        try {
+          const res = await fetch("news.json", { cache: "no-store" });
+          const data = await res.json();
+          const articles = data.articles || [];
+
+          const ticker = document.getElementById("tickerList");
+          if(ticker) ticker.innerHTML = articles.slice(0, 4).map(a => `<li>${esc(a.title)}</li>`).join("");
+
+          if (articles[0]) {
+            const hero = articles[0];
+            const mainHeroLink = document.getElementById("mainHeroLink");
+            if(mainHeroLink) mainHeroLink.href = `article.html?id=${encodeURIComponent(hero.id)}`;
+            const mainHeroCat = document.getElementById("mainHeroCat"); if(mainHeroCat) mainHeroCat.textContent = esc(hero.category);
+            const mainHeroTitle = document.getElementById("mainHeroTitle"); if(mainHeroTitle) mainHeroTitle.textContent = esc(hero.title);
+            const mainHeroExcerpt = document.getElementById("mainHeroExcerpt"); if(mainHeroExcerpt) mainHeroExcerpt.textContent = esc(hero.excerpt);
+            const mainHeroMeta = document.getElementById("mainHeroMeta"); if(mainHeroMeta) mainHeroMeta.textContent = `${esc(hero.date)} · ${esc(hero.readTime)}`;
+            const mainImg = document.getElementById("mainHeroImg");
+            if (mainImg) { mainImg.src = getCover(hero); mainImg.alt = esc(hero.title || '주요 기사 이미지'); }
+          }
+
+          const sideList = document.getElementById("sideNewsList");
+          if(sideList) sideList.innerHTML = articles.slice(1, 5).map(a => `
+            <a href="article.html?id=${encodeURIComponent(a.id)}" class="side-item">
+              <div class="side-item-title">${esc(a.title)}</div>
+              <div style="font-size:11px; color:var(--muted); margin-top:4px;">${esc(a.date)}</div>
+            </a>
+          `).join("");
+        } catch (e) { console.error(e); }
+      }
+      document.addEventListener('DOMContentLoaded', ()=>{ main(); renderLatest3(); });
+    </script>
+  </div>
+
+  <main class="site-main">
+    <section class="ticker glass">
+      <div class="ticker-bar">
+        <div class="ticker-label">속보</div>
+        <div class="ticker-content"><ul id="tickerList"></ul></div>
+      </div>
+    </section>
+
+    <section class="main-news-section">
+      <div class="main-news-grid">
+        <a id="mainHeroLink" class="hero-box" href="#">
+          <div class="hero-img-area"><img id="mainHeroImg" src="assets/worker.jpg" alt="메인 이미지"/></div>
+          <div class="hero-txt-area">
+            <div id="mainHeroCat" class="hero-cat">분류</div>
+            <h1 id="mainHeroTitle" class="hero-main-title">메인 타이틀</h1>
+            <p id="mainHeroExcerpt" class="hero-main-excerpt">요약 텍스트</p>
+            <div id="mainHeroMeta" class="muted">--</div>
+          </div>
+        </a>
+
+        <aside class="side-box">
+          <div class="side-head">현장 이슈 리스트</div>
+          <div id="sideNewsList"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="glass contact">
+        <h2 class="section-title">부당 대우 제보 및 상담</h2>
+        <a class="btn btn-kakao btn-xl" href="https://open.kakao.com/0/gYojhMci" target="_blank" rel="noopener noreferrer">익명 카톡 제보하기</a>
+      </div>
+    </section>
+
+  </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="muted">© 2026 NOGADA NEWS. All Rights Reserved.</div>
+        <div class="muted">발행인 : 박 상 현</div>
+        <div class="muted">지주회사 : (주)누리온홀딩스</div>
+      </div>
+    </footer>
+
+  <script>
+    // 비동기 데이터 바인딩을 위해 불러옴
+    // 이미 위에서 정의한 esc/getCover/main/renderLatest3 함수들이 동작함
+  </script>
+</body>
+</html>

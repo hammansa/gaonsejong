@@ -1,0 +1,66 @@
+{
+  "articles": [
+    {
+      "id": "notice-001",
+      "category": "창간특집",
+      "cover": "assets/thumbs/launch.jpg",
+      "title": "[창간사] 세상의 기초를 놓는 당신을 위해, '노가다뉴스'가 시작합니다",
+      "excerpt": "우리가 딛고 선 이 견고한 도로와 빌딩들, 이 모든 것은 도면 위의 선이 아니라 여러분의 정직한 땀방울이 만들어낸 결과물입니다.",
+      "date": "2026-02-05",
+      "readTime": "3분",
+      "content": "안녕하십니까. 노가다뉴스 발행인입니다. 우리는 매일 아침 거친 현장으로 나섭니다. 우리가 딛고 선 이 견고한 도로, 밤하늘 아래 빛나는 저 높은 빌딩들, 그리고 우리 가족이 안전하게 잠드는 집까지. 이 모든 것은 도면 위의 선이 아니라, 누군가의 거친 손마디와 정직한 땀방울이 만들어낸 결과물입니다. 하지만 정작 그 주인공인 우리 '노가다'들의 목소리는 어디에 있습니까? 이제 우리는 그 투박한 이름 속에 담긴 숭고한 가치를 다시 정의하려 합니다. [노: 노력하는 사람들의 / 가: 가치 있는 땀방울로 / 다: 다 함께 만드는 세상] 이것이 바로 노가다뉴스가 존재하는 이유입니다.",
+      "articleUrl": "/article_pages/notice-001.html"
+    },
+    {
+      "id": "news-001",
+      "category": "권익보호",
+      "cover": "assets/thumbs/rights.jpg",
+      "title": "동절기 건설현장 안전 가이드 및 임금 체불 대응법",
+      "excerpt": "추운 겨울철 현장에서 빈번하게 발생하는 사고 예방 수칙과 체불 발생 시 즉각적인 법적 대응 절차를 안내해 드립니다.",
+      "date": "2026-02-05",
+      "readTime": "5분",
+      "content": "상세 내용은 준비 중입니다.",
+      "articleUrl": "/article_pages/news-001.html"
+    },
+    {
+      "id": "news-002",
+      "category": "현장소식",
+      "cover": "assets/thumbs/site.jpg",
+      "title": "2026년 수도권 주요 현장 일용직 단가 동향 보고",
+      "excerpt": "올해 상반기 형틀목수, 철근공, 잡부 등 주요 공종별 평균 단가 변화와 인력 수급 현황을 분석했습니다.",
+      "date": "2026-02-04",
+      "readTime": "4분",
+      "content": "상세 내용은 준비 중입니다.",
+      "articleUrl": "/article_pages/news-002.html"
+    },
+    {
+      "id": "nogada-2026-02-10-002",
+      "category": "인터뷰",
+      "cover": "assets/thumbs/rights.jpg",
+      "title": "인터뷰: 현장 노동자 A씨가 전하는 실태와 요청",
+      "excerpt": "제보자가 전하는 현장의 현실과 그가 바라는 변화에 대해 들어봤습니다.",
+      "date": "2026-02-10",
+      "readTime": "2분",
+      "articleUrl": "/article_pages/nogada-2026-02-10-002.html"
+    },
+    {
+      "id": "nogada-2026-02-10-003",
+      "category": "칼럼",
+      "cover": "assets/thumbs/site.jpg",
+      "title": "칼럼: 노동의 존엄과 기록의 힘",
+      "excerpt": "기록은 단지 증거가 아니라, 노동의 존엄을 유지하는 실천입니다.",
+      "date": "2026-02-10",
+      "readTime": "2분",
+      "articleUrl": "/article_pages/nogada-2026-02-10-003.html"
+    },
+    {
+      "id": "rights-2026-02-06-wage-records",
+      "category": "권익보호",
+      "title": "임금이 밀릴 때, ‘기다리면 해결’이 아니라 ‘기록하면 해결’로 바뀝니다",
+      "excerpt": "임금 지연·미지급·수당 누락이 시작되면 ‘기다림’이 아니라 ‘기록’이 해답입니다. 날짜·시간·금액을 남기는 7단계 체크리스트와 현장용 문자 템플릿을 정리했습니다.",
+      "date": "2026-02-06",
+      "readTime": "5분",
+      "articleUrl": "/article_pages/rights-2026-02-06-wage-records.html"
+    }
+  ]
+}

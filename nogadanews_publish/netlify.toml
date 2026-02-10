@@ -1,0 +1,10 @@
+[build]
+  # Publish the generated `nogadanews_publish` directory so Netlify serves
+  # the site output created by the build script below.
+  publish = "nogadanews_publish"
+  # Run the npm build script to create the publish directory during build.
+  command = "npm run build"
+
+[context.production.environment]
+  # Example: pin Node version if any build steps rely on node
+  NODE_VERSION = "18"

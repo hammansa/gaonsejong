@@ -34,6 +34,26 @@
       "articleUrl": "/article_pages/news-002.html"
     },
     {
+      "id": "nogada-2026-02-10-002",
+      "category": "인터뷰",
+      "cover": "assets/thumbs/rights.jpg",
+      "title": "인터뷰: 현장 노동자 A씨가 전하는 실태와 요청",
+      "excerpt": "제보자가 전하는 현장의 현실과 그가 바라는 변화에 대해 들어봤습니다.",
+      "date": "2026-02-10",
+      "readTime": "2분",
+      "articleUrl": "/article_pages/nogada-2026-02-10-002.html"
+    },
+    {
+      "id": "nogada-2026-02-10-003",
+      "category": "칼럼",
+      "cover": "assets/thumbs/site.jpg",
+      "title": "칼럼: 노동의 존엄과 기록의 힘",
+      "excerpt": "기록은 단지 증거가 아니라, 노동의 존엄을 유지하는 실천입니다.",
+      "date": "2026-02-10",
+      "readTime": "2분",
+      "articleUrl": "/article_pages/nogada-2026-02-10-003.html"
+    },
+    {
       "id": "rights-2026-02-06-wage-records",
       "category": "권익보호",
       "title": "임금이 밀릴 때, ‘기다리면 해결’이 아니라 ‘기록하면 해결’로 바뀝니다",

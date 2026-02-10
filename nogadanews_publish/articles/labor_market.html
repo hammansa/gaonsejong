@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>인력시장 | 노가다뉴스</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .card{border:1px solid #eee;padding:12px;border-radius:8px}
+    .muted{color:#777;font-size:0.95em}
+  </style>
+</head>
+<body>
+  <div class="container" style="padding:24px">
+    <h1 style="margin-top:0">인력시장 — 현장 인력 모집 및 지원</h1>
+    <p class="muted">현장 인력을 구하는 기업과 지원자가 만나는 공간입니다. 공고 작성 후 관리자의 승인으로 게시됩니다.</p>
+
+    <div style="display:flex;gap:16px;margin-top:18px;align-items:flex-start">
+      <div style="flex:2">
+        <h3>공고 목록</h3>
+        <div id="posts" class="cards">로딩 중…</div>
+      </div>
+
+      <aside style="flex:1">
+        <h3>새 공고 올리기</h3>
+        <form id="postForm" method="post" data-netlify="true">
+          <label>회사/기관명<br><input name="agency" required style="width:100%"></label><br>
+          <label>제목<br><input name="title" required style="width:100%"></label><br>
+          <label>지역<br><input name="region" style="width:100%"></label><br>
+          <label>내용<br><textarea name="body" rows="5" style="width:100%"></textarea></label><br>
+          <label>연락처(선택)<br><input name="contact" style="width:100%"></label>
+          <!-- Honeypot field to catch bots (should be left empty) -->
+          <input name="hp_email" style="display:none" tabindex="-1" autocomplete="off">
+          <!-- Simple math CAPTCHA -->
+          <div style="margin-top:8px">
+            <label id="captchaQuestion">간단한 인증: </label><br>
+            <input id="captcha_ans" name="captcha_ans" placeholder="계산 결과를 입력하세요" required style="width:100%; padding:6px; margin-top:6px;">
+          </div>
+          <input type="hidden" name="status" value="published">
+          <button class="btn btn-primary" type="submit" style="margin-top:8px">공고 올리기 (즉시 게시)</button>
+        </form>
+        <p class="muted" style="margin-top:10px">제출 즉시 사이트에 게시되며, 연락처는 게시글에 그대로 표시됩니다. 스팸/허위 게시물에 대한 책임은 게시자에게 있습니다.</p>
+      </aside>
+    </div>
+
+    <p style="margin-top:20px" class="muted">관리자: <a href="admin/labor.html">관리 페이지</a> (선택적 관리용)</p>
+  </div>
+
+  <script>
+    // Simple autonomous posting: posts are added to localStorage and rendered immediately.
+    // Posts are also submitted to Netlify Forms for record-keeping.
+    const STORAGE_KEY = 'nogada_labor_posts_v1';
+
+    function renderPosts(list){
+      const container = document.getElementById('posts');
+      container.innerHTML = '';
+      list.forEach(p=>{
+        const d = document.createElement('div'); d.className='card';
+        d.innerHTML = `<strong>${escapeHtml(p.title)}</strong><div class="muted">${escapeHtml(p.agency)} · ${escapeHtml(p.region)} · ${escapeHtml(p.postedDate||'')}</div><p>${escapeHtml((p.body||'').slice(0,400))}</p><div><strong>연락처:</strong> ${escapeHtml(p.contact||'없음')}</div><div style="margin-top:8px"><button data-link class="btn">공유 링크 복사</button></div>`;
+        const btn = d.querySelector('[data-link]');
+        btn.addEventListener('click', ()=>{ const link = makeShareLink(p); navigator.clipboard.writeText(link).then(()=>alert('공유 링크가 복사되었습니다')); });
+        container.appendChild(d);
+      });
+      if(!container.children.length) container.innerHTML='<div class="muted">게시된 공고가 없습니다.</div>';
+    }
+
+    function escapeHtml(s){ return String(s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+
+    function loadInitial(){
+      // load static published posts from data file
+      fetch('/data/labor_posts.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
+        const staticPosts = Array.isArray(j)?j:(j.posts||[]);
+        const published = staticPosts.filter(p=>p.status=='published');
+        const local = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+        // newest first
+        const combined = local.concat(published).sort((a,b)=> (b.postedDate||'') > (a.postedDate||'') ? 1 : -1);
+        renderPosts(combined);
+      }).catch(e=>{
+        const local = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+        renderPosts(local);
+      });
+    }
+
+    function makeShareLink(post){
+      const payload = btoa(unescape(encodeURIComponent(JSON.stringify(post))));
+      return `${location.origin + location.pathname}#post=${payload}`;
+    }
+
+    function readSharedPostFromHash(){
+      const m = location.hash.match(/post=([^&]+)/);
+      if(!m) return null;
+      try{ const obj = JSON.parse(decodeURIComponent(escape(atob(m[1])))); return obj;}catch(e){return null}
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      loadInitial();
+      // init simple math captcha
+      const a = Math.floor(Math.random()*8)+2;
+      const b = Math.floor(Math.random()*8)+2;
+      const q = document.getElementById('captchaQuestion');
+      q.textContent = `간단한 인증: ${a} + ${b} = ?`;
+      q.dataset.answer = String(a+b);
+
+      // If URL contains shared post, show it in modal-ish area
+      const shared = readSharedPostFromHash();
+      if(shared){
+        // prepend shared post to localStorage so it's visible
+        const local = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+        local.unshift(shared);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(local));
+        loadInitial();
+      }
+
+      const form = document.getElementById('postForm');
+      form.addEventListener('submit', (e)=>{
+        // client-side captcha + honeypot validation
+        const hp = form.querySelector('input[name="hp_email"]').value;
+        if(hp && hp.trim() !== ''){ e.preventDefault(); alert('스팸으로 인식되어 제출이 차단되었습니다.'); return; }
+        const provided = (document.getElementById('captcha_ans')||{}).value || '';
+        const expected = document.getElementById('captchaQuestion').dataset.answer;
+        if(String(provided).trim() !== String(expected)) { e.preventDefault(); alert('간단한 인증이 올바르지 않습니다. 계산 결과를 확인해 주세요.'); return; }
+        e.preventDefault();
+        const fd = new FormData(form);
+        const post = {
+          id: 'local-'+Date.now(),
+          agency: fd.get('agency'),
+          title: fd.get('title'),
+          region: fd.get('region'),
+          body: fd.get('body'),
+          contact: fd.get('contact'),
+          status: 'published',
+          postedDate: new Date().toISOString().slice(0,10)
+        };
+        // save to localStorage
+        const local = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+        local.unshift(post);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(local));
+        renderPosts(local.concat([]));
+
+        // create share link and copy
+        const link = makeShareLink(post);
+        navigator.clipboard.writeText(link).then(()=>alert('공고가 게시되었습니다. 공유 링크가 복사되었습니다.'));
+
+        // submit to Netlify forms in background for record-keeping
+        fetch(location.pathname, {method:'POST', body: fd}).catch(()=>{});
+
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>

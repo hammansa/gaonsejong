@@ -1,0 +1,45 @@
+# This file was moved to config/kasa-ai-keywords.yml for action-friendly usage.
+# Archived copy available at dev/archives/kasa-ai-keywords.yml
+
+# NOTE: Keep `config/kasa-ai-keywords.yml` as the canonical source for Actions.
+    - "무선전력전송"
+    - "전파융합 서비스"
+
+  vertical:
+    defense:
+      - "국가 안보 위성망"
+      - "방산 수출 연계 위성"
+      - "위성 암호 통신"
+      - "전술 저궤도 위성"
+      - "위성 감시 체계"
+    maritime_aviation:
+      - "Maritime communication"
+      - "자율운항 선박 위성"
+      - "UAM 위성 통신"
+      - "공중 통신망"
+      - "기내 위성 와이파이"
+    disaster_safety:
+      - "재난용 위성 통신"
+      - "수중/지중 통신 기술"
+      - "공간적 한계 극복 통신"
+      - "비상용 위성 메시지"
+    future_tech:
+      - "양자 암호 위성 통신"
+      - "온디바이스 AI 위성"
+      - "디지털 트윈 연동"
+      - "6G 이음 5G"
+
+  benchmarking:
+    - "Starlink 벤치마킹"
+    - "스타링크 코리아"
+    - "SpaceX 저궤도 위성"
+    - "Direct to Cell"
+    - "위성 로밍 서비스"
+    - "Starlink Mini 성능"
+    - "위성 지연시간 (Latency)"
+    - "Regenerative Payload"
+    - "Beam Hopping"
+    - "글로벌 6G 표준 기여도"
+
+notes:
+  tip: "유튜브/API 검색 시 'KASA', '6G NTN', '저궤도 위성' 등 핵심어를 조합해서 질의하세요. 예: KASA + 저궤도 위성통신 기술개발사업 + 3GPP"

@@ -1,0 +1,9 @@
+[build]
+  # publish can be adjusted to your preferred folder. Use "." if your site is root-based,
+  # or "deploy/netlify" if you prefer to build into a separate folder.
+  publish = "."
+  command = "bash ./scripts/netlify_replace_meta.sh"
+
+[context.production.environment]
+  # Example: if you want production-specific env fallback values
+  # NETLIFY_CONTEXT = "production"
