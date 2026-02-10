@@ -7,7 +7,7 @@
     "amount": "1,468억 원 (총사업비)",
     "deadline": "2026-02-13",
     "postedDate": "2026-02-10",
-    "url": "https://procurement.example/notice/p-20260210-001",
+    
     "tags": "관로, 상수도, 대형공사"
   },
   {
@@ -18,7 +18,7 @@
     "amount": "8억 원",
     "deadline": "2026-02-20",
     "postedDate": "2026-02-09",
-    "url": "https://procurement.example/notice/p-20260209-002",
+    
     "tags": "도로, 정비"
   }
 ]
