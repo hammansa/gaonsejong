@@ -398,6 +398,18 @@ ul { list-style: none; }
 /* --- YNA-like additions (merged from src/style.yna.css) --- */
 /* Retain existing brand fonts/colors; add YNA-specific variables and classes */
 :root{
+}
+
+/* Slogan and reporting phone color overrides */
+.header-slogan-area .site-slogan,
+.site-footer .site-slogan-footer {
+  color: #27ae60 !important; /* green */
+}
+
+.site-footer a[href^="tel:"] {
+  color: #e74c3c; /* red */
+  font-weight: 800;
+}
   --yna-accent:#d32f2f;
   --yna-body:#222;
   --yna-muted:#666;
