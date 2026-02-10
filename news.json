@@ -74,25 +74,25 @@
       "tags": [
         "임금체불",
         "노동권익",
-        "기록법",
-        "현장가이드"
-      ],
-      "author": "NOGADA NEWS 편집부",
-      "publishedAt": "2026-02-09",
-      "thumbnailUrl": "/assets/thumbs/rights.jpg",
-      "summary": "현장 분쟁은 ‘말이 달랐다’에서 시작됩니다. 권익을 지키는 최소한의 기록 체크리스트를 정리했습니다.",
-      "bodyMarkdown": "현장에서 가장 흔한 분쟁은 “말이 달랐다”에서 시작합니다. 약속이 글로 남지 않거나, 근무·지시·지급이 기록되지 않으면 책임이 흐려집니다. 노가다뉴스는 노동의 권익을 지키기 위해, 누구나 바로 실행 가능한 기록 방법을 정리합니다. [Source](https://cheerful-lily-275b65.netlify.app/)\n\n권익을 지키는 첫 단계는 ‘싸우는 것’이 아니라 ‘남기는 것’입니다. 현장에서는 말이 바뀌기 쉽고, 기억은 금방 흐려집니다. 그래서 기록이 필요합니다. 아래 체크리스트는 “지금부터라도” 할 수 있는 최소 기준입니다.\n\n## 현장 기록 체크리스트(핵심)\n1) **근무 시작/종료 시각**: 출근·퇴근을 본인 휴대폰 메모에 매일 남기기\n\n2) **업무 내용/작업 위치**: 어떤 작업을 어디서 했는지 1~2줄로 기록\n\n3) **지시 내용**: 구두 지시라도 핵심만 문자/메모로 정리(예: “오늘 OO 작업, OO 장비 사용”)\n\n4) **임금 약속**: 일당/주급/월급, 지급일, 공제 항목을 가능한 한 메시지·문서로 남기기\n\n5) **지급 내역**: 입금 캡처, 급여명세(받으면 보관), 현금 지급이면 날짜·금액 메모\n\n6) **문제 상황**: 안전장비 미지급, 위험작업 지시, 폭언 등은 발생 시각/장소/상황을 간단히 남기기\n\n이 기록은 누군가를 벌주기 위한 장치가 아니라, 본인을 보호하는 기본 장비입니다. “권익을 지킨다”는 말은 거창하지만, 실제로는 오늘의 메모 한 줄에서 시작합니다. 노가다뉴스는 이런 실전 정보들을 모아 현장과 현장을 연결하겠습니다. [Source](https://cheerful-lily-275b65.netlify.app/)\n\n## 한 줄 결론\n문제가 생긴 뒤에 만드는 기록은, 문제 전의 기록보다 힘이 약합니다. 오늘부터 남겨두세요."
-    },
-    {
-      "id": "nogada-2026-02-09-003",
-      "status": "ready",
-      "language": "ko-KR",
-      "title": "현장을 연결하는 뉴스: 제보가 기사로 바뀌는 과정(그리고 우리가 지키는 원칙)",
-      "subtitle": "더 빠르게, 더 정확하게—하지만 확인 없이 단정하지 않습니다",
-      "slug": "how-tip-becomes-newsroom-process-principles",
-      "category": "뉴스룸",
-      "tags": [
-        "제보",
+        {
+          "id": "nogada-2026-02-10-001",
+          "status": "ready",
+          "language": "ko-KR",
+          "title": "취재수첩: 현장 기록의 사소한 차이가 큰 결과를 만든다",
+          "subtitle": "작은 메모가 반복되는 피해를 막는 첫걸음",
+          "slug": "chit-jae-notebook-field-notes",
+          "category": "취재수첩",
+          "tags": [
+            "취재수첩",
+            "현장기록",
+            "사례"
+          ],
+          "author": "NOGADA NEWS 취재팀",
+          "publishedAt": "2026-02-10",
+          "thumbnailUrl": "/assets/thumbs/launch.jpg",
+          "summary": "작은 기록 습관이 반복되는 불합리를 끊어냅니다. 현장에서 쓸 수 있는 간단한 팁을 정리했습니다.",
+          "bodyHtml": "<!DOCTYPE html>\\n<html lang=\\"ko\\">\\n<head>\\n    <meta charset=\\"UTF-8\\">\\n    <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\">\\n    <title>사건사고 | 진도 도로공사 현장 압착 참사</title>\\n    <style>\\n        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; line-height: 1.8; color: #333; max-width: 800px; margin: 20px auto; padding: 20px; background-color: #f5f5f5; }\\n        .article-wrap { background: #fff; padding: 40px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-top: 10px solid #c0392b; }\\n        .category-tag { color: #c0392b; font-weight: bold; font-size: 1.1em; text-transform: uppercase; }\\n        .main-title { font-size: 2.2em; line-height: 1.4; margin: 15px 0; color: #111; word-break: keep-all; }\\n        .date-line { color: #888; font-size: 0.9em; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 25px; }\\n        .incident-summary { background: #fff5f5; border: 1px solid #feb2b2; padding: 20px; border-radius: 8px; margin-bottom: 30px; font-weight: 500; color: #c53030; }\\n        h3 { font-size: 1.4em; color: #2d3436; border-left: 5px solid #c0392b; padding-left: 12px; margin-top: 35px; }\\n        .fact-box { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #dee2e6; }\\n        .warning-text { color: #e74c3c; font-weight: bold; text-decoration: underline; }\\n        .footer { margin-top: 50px; font-size: 0.85em; color: #999; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }\\n    </style>\\n</head>\\n<body>\\n\\n<div class=\\\"article-wrap\\\">\\n    <div class=\\\"category-tag\\\">사건사고들</div>\\n    <div class=\\\"site-slogan\\\" style=\\\"color:#c0392b;font-weight:800;margin-top:10px;margin-bottom:12px;\\\">(노)동의 진실함을 믿는 사람들의<br/>(가)교가 되어주는 따뜻한 정보로<br/>(다)함께 내일을 만드는 신문</div>\\n    <h1 class=\\\"main-title\\\">진도 도로포장 현장 참사: 40대 노동자, 타이어 롤러 후진 중 압착 사망</h1>\\n    <div class=\\\"date-line\\\">기사입력: 2026-02-10 | 사고발생: 2026-01-08 17:45</div>\\n\\n    <div class=\\\"incident-summary\\\">\\n        전남 진도군 임회면 도로공사 현장에서 40대 작업자가 후진하던 타이어 롤러에 깔려 숨지는 사고가 발생했습니다. 장비의 사각지대와 신호 체계 부재가 겹친 전형적인 '인재'로 지적되고 있습니다.\\n    </div>\\n\\n    <h3>1. 사고 경위: \"멈추지 못한 중장비\"</h3>\\n    <p>사고는 지난 1월 8일 오후 5시 45분경, 전라남도 진도군 임회면의 한 마을 앞 도로포장 공사 현장에서 발생했습니다. 아스팔트 포장 작업이 막바지에 다다를 무렵, 도로를 다지던 <strong>타이어 롤러</strong>가 후진하는 과정에서 뒤편에 있던 작업자 A씨(40대)를 덮쳤습니다.</p>\\n    \\n+    <div class=\\\"fact-box\\\">\\n+        <strong>사고 개요</strong>\\n+        <ul>\\n+            <li><strong>장소:</strong> 전남 진도군 임회면 마을 앞 도로</li>\\n+            <li><strong>장비:</strong> 타이어 롤러 (도로 다짐용 중장비)</li>\\n+            <li><strong>피해:</strong> 작업자 A씨 현장에서 사망</li>\\n+        </ul>\\n+    </div>\\n+\\n+    <h3>2. 반복되는 사각지대 사고, 왜 못 막나</h3>\\n+    <p>타이어 롤러는 수 톤에 달하는 중량물로, 운전석에서 후방 하부를 육안으로 확인하기 어려운 <span class=\\\"warning-text\\\">구조적 사각지대</span>가 존재합니다. 이번 사고 역시 운전자가 A씨를 미처 발견하지 못하고 후진하면서 발생한 것으로 경찰은 파악하고 있습니다.</p>\\n+    <p>특히 도로포장 현장은 여러 장비가 좁은 공간에서 동시에 움직이기 때문에 <strong>전담 신호수 배치</strong>와 <strong>접근 통제</strong>가 필수적이지만, 현장에서 이러한 기본 수칙이 지켜졌는지가 수사의 핵심 쟁점이 될 전망입니다.</p>\\n+\\n+    <h3>3. 안전보다 속도? 구조적 문제 지적</h3>\\n+    <p>사건 소식을 접한 건설 노동자들은 \"후진 경고음만 믿고 작업해서는 안 된다\", \"신호수 한 명만 제대로 있었어도 막을 수 있었던 사고\"라며 개탄하고 있습니다. 지방 소규모 공사 현장의 경우 예산과 인력 부족을 이유로 안전 관리 인력을 소홀히 하는 관행이 여전하다는 지적입니다.</p>\\n+\\n+    <h3>4. 경찰 수사 및 책임 소재</h3>\\n+    <p>경찰은 장비 운전자의 업무상 과실 여부를 조사하는 한편, 시공사와 관리책임자가 산업안전보건법에 따른 <strong>안전조치 의무</strong>를 다했는지 집중 조사 중입니다. 특히 신호수 배치 여부와 장비의 후진 경고 장치 작동 여부가 처벌 수위를 가를 것으로 보입니다.</p>\\n+\\n+    <div class=\\\"footer\\\">\\n+        <strong>노가다뉴스룸 사건사고 취재팀</strong><br>\\n+        고인의 명복을 빌며, 다시는 이런 비극이 반복되지 않기를 바랍니다.\\n+        &copy; 2026 NOGADA NEWS ROOM. All rights reserved.\\n+    </div>\\n+</body>\\n</html>"
+        },
         "팩트체크",
         "현장연결",
         "뉴스룸"
@@ -115,6 +115,7 @@
         "취재수첩",
         "현장기록",
         "사례"
+
       ],
       "author": "NOGADA NEWS 취재팀",
       "publishedAt": "2026-02-10",
