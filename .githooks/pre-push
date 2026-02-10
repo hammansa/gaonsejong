@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+ROOT=$(git rev-parse --show-toplevel)
+node "$ROOT/scripts/validate_json.js"
+EXIT_CODE=$?
+if [ "$EXIT_CODE" -ne 0 ]; then
+  echo "Pre-push: news.json validation failed. Push aborted."
+  exit $EXIT_CODE
+fi
+exit 0

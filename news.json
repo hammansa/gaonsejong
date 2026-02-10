@@ -9,7 +9,7 @@
       "date": "2026-02-05",
       "readTime": "3분",
       "content": "안녕하십니까. 노가다뉴스 발행인입니다. 우리는 매일 아침 거친 현장으로 나섭니다. 우리가 딛고 선 이 견고한 도로, 밤하늘 아래 빛나는 저 높은 빌딩들, 그리고 우리 가족이 안전하게 잠드는 집까지. 이 모든 것은 도면 위의 선이 아니라, 누군가의 거친 손마디와 정직한 땀방울이 만들어낸 결과물입니다. 하지만 정작 그 주인공인 우리 '노가다'들의 목소리는 어디에 있습니까? 이제 우리는 그 투박한 이름 속에 담긴 숭고한 가치를 다시 정의하려 합니다. [노: 노력하는 사람들의 / 가: 가치 있는 땀방울로 / 다: 다 함께 만드는 세상] 이것이 바로 노가다뉴스가 존재하는 이유입니다.",
-      "bodyHtml": "안녕하십니까. 노가다뉴스 발행인입니다. 우리는 매일 아침 거친 현장으로 나섭니다. 우리가 딛고 선 이 견고한 도로, 밤하늘 아래 빛나는 저 높은 빌딩들, 그리고 우리 가족이 안전하게 잠드는 집까지. 이 모든 것은 도면 위의 선이 아니라, 누군가의 거친 손마디와 정직한 땀방울이 만들어낸 결과물입니다. 하지만 정작 그 주인공인 우리 '노가다'들의 목소리는 어디에 있습니까? 이제 우리는 그 투박한 이름 속에 담긴 숭고한 가치를 다시 정의하려 합니다. [노: 노력하는 사람들의 / 가: 가치 있는 땀방울로 / 다: 다 함께 만드는 세상] 이것이 바로 노가다뉴스가 존재하는 이유입니다."
+      "articleUrl": "/article_pages/notice-001.html"
     },
     {
       "id": "news-001",
@@ -19,8 +19,7 @@
       "excerpt": "추운 겨울철 현장에서 빈번하게 발생하는 사고 예방 수칙과 체불 발생 시 즉각적인 법적 대응 절차를 안내해 드립니다.",
       "date": "2026-02-05",
       "readTime": "5분",
-      "content": "",
-      "bodyHtml": "<div class=\"report-card\">\n    <div class=\"badge\">권익보호 리포트</div>\n    <h1>동절기 건설현장 안전 가이드 및 임금 체불 대응법</h1>\n    <div class=\"meta-info\">발행일: 2026-02-05 | ⏱️ 읽는 시간 5분</div>\n\n    <p>기온이 영하로 떨어지는 동절기는 건설현장의 위험요소가 급증하는 시기입니다. 근로자의 생명과 직결되는 <strong>안전 수칙</strong>과 정당한 노동의 대가를 지키는 <strong>법적 절차</strong>를 안내합니다.</p>\n\n    <h2>1. 동절기 3대 핵심 안전 수칙</h2>\n    <div class=\"safety-box\">\n        <ul class=\"step-list\">\n            <li><strong>질식 사고 예방:</strong> 콘크리트 양생 시 갈탄·숯탄 사용을 지양하고 <span class=\"warning\">전기열풍기</span> 사용을 권장합니다. 부득이하게 사용할 경우 반드시 유해가스 측정 후 출입하십시오.</li>\n            <li><strong>화재·폭발 방지:</strong> 난방기구 주변 가연물을 즉시 제거하고, 용접 작업 시에는 반드시 화재감시자를 배치해야 합니다.</li>\n            <li><strong>결빙 및 추락 주의:</strong> 작업 전 발판이나 이동 통로의 살얼음을 제거하고, 미끄럼 방지 안전화를 반드시 착용하십시오.</li>\n        </ul>\n    </div>\n\n    <h2>2. 임금 체불 발생 시 단계별 대응 절차</h2>\n    <p>2026년 현재, 임금 체불은 단순한 민사 문제를 넘어 <strong>상습 체불 사업주에 대한 경제적 제재(신용정보 제공 등)</strong>가 대폭 강화되었습니다.</p>\n    \n    <div class=\"legal-box\">\n        <strong>[1단계] 증거 자료 확보</strong>\n        <p>근로계약서, 출퇴근 기록(사진, 앱 기록), 작업 확인서, 급여명세서, 사업주와의 통화 녹취 또는 메시지 등.</p>\n        \n        <strong>[2단계] 고용노동부 진정 접수</strong>\n        <p>관할 고용노동지청 방문 또는 <span class=\"warning\">고용노동부 노동포털</span>을 통해 온라인 진정서를 제출합니다.</p>\n        \n        <strong>[3단계] 대지급금(구 소액체당금) 신청</strong>\n        <p>사업주가 임금을 지급할 능력이 없는 경우, 국가가 우선 지급하는 '대지급금' 제도를 활용하십시오. (최대 1,000만 원 한도)</p>\n    </div>\n\n    <h2>3. 2026년 달라진 제도 Tip</h2>\n    <ul>\n        <li><strong>상습체불 제재:</strong> 1년 이내 3개월분 이상 또는 5회 이상 체불 시 상습 체불 사업주로 분류되어 정부 지원 사업에서 배제됩니다.</li>\n        <li><strong>무료 법률 구조:</strong> 체불 당시 월평균 임금이 400만 원 미만인 경우 <span class=\"warning\">대한법률구조공단(국번없이 132)</span>을 통해 무료로 민사소송 지원을 받을 수 있습니다.</li>\n    </ul>\n\n    <div class=\"footer-note\">\n        본 가이드는 고용노동부 및 산업안전보건공단 2026 가이드라인을 바탕으로 작성되었습니다.<br>\n        <strong>\"안전은 권리이며, 임금은 생명입니다.\"</strong><br>\n        &copy; 2026 NOGADA NEWS ROOM. All rights reserved.\n    </div>\n</div>"
+      "content": "상세 내용은 준비 중입니다."
     },
     {
       "id": "news-002",
@@ -30,8 +29,7 @@
       "excerpt": "올해 상반기 형틀목수, 철근공, 잡부 등 주요 공종별 평균 단가 변화와 인력 수급 현황을 분석했습니다.",
       "date": "2026-02-04",
       "readTime": "4분",
-      "content": "",
-      "bodyHtml": "<div class=\"article-container\">\n    <div class=\"header\">\n        <span class=\"category\">NOGADA NEWS ROOM | 현장소식</span>\n        <h1 class=\"title\">2026년 수도권 주요 현장 일용직 단가 동향 보고</h1>\n        <div class=\"meta\">발행일: 2026-02-04 | 작성자: 에이온(AEon) 리서치팀 | ⏱️ 읽는 시간 4분</div>\n    </div>\n\n    <div class=\"summary\">\n        2026년 상반기 건설업 시중노임단가가 전년 대비 완만한 상승세를 보이고 있습니다. 특히 수도권 대형 플랜트 및 고덕·용인 반도체 클러스터 인력 유출로 인해 일반 공사 현장의 숙련공 부족 현상이 심화되고 있습니다.\n    </div>\n\n    <h3>1. 2026년 상반기 주요 공종별 노임단가 (공표 기준)</h3>\n    <p>대한건설협회에서 발표한 2026년 상반기 적용 시중노임단가에 따르면, 전체 132개 직종의 평균 임금은 <strong>279,988원</strong>으로 집계되었습니다.</p>\n    \n    <table>\n        <thead>\n            <tr>\n                <th>공종</th>\n                <th>2026 상반기 단가</th>\n                <th>전기 대비 증감</th>\n                <th>비고</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td>보통인부(잡부)</td>\n                <td>172,068원</td>\n                <td class=\"trend-up\">▲ 0.8%</td>\n                <td>신규 유입 감소</td>\n            </tr>\n            <tr>\n                <td>형틀목수</td>\n                <td>275,430원</td>\n                <td class=\"trend-up\">▲ 1.2%</td>\n                <td>숙련공 부족 심화</td>\n            </tr>\n            <tr>\n                <td>철근공</td>\n                <td>268,187원</td>\n                <td class=\"trend-up\">▲ 1.1%</td>\n                <td>철근 가공단가 인상 반영</td>\n            </tr>\n            <tr>\n                <td>콘크리트공</td>\n                <td>273,540원</td>\n                <td class=\"trend-up\">▲ 0.9%</td>\n                <td>-</td>\n            </tr>\n            <tr class=\"highlight\">\n                <td>플랜트 특수용접</td>\n                <td>436,932원</td>\n                <td class=\"trend-up\">▲ 1.6%</td>\n                <td>최고 임금 직종</td>\n            </tr>\n        </tbody>\n    </table>\n\n    <h3>2. 수도권 인력 수급 현황 분석</h3>\n    <p>현재 수도권 건설현장은 크게 두 가지 흐름으로 나뉩니다.</p>\n    <ul>\n        <li><strong>반도체 현장 쏠림:</strong> 용인 및 평택 지역의 대규모 반도체 공사 현장으로 숙련공들이 대거 이동하며, 일반 아파트 및 상가 현장의 공기 지연 우려가 커지고 있습니다.</li>\n        <li><strong>실제 체감 단가:</strong> 공표된 시중노임단가와 달리, 현장에서 지급되는 실제 소위 '데마찌' 방지용 단가는 형틀목수 기준 28~30만 원 선까지 형성되고 있습니다.</li>\n    </ul>\n\n    <h3>3. 현장 소장의 브리핑: \"안전이 곧 생산성\"</h3>\n    <blockquote>\n        \"단가가 오르는 것보다 무서운 것은 숙련된 사람을 구하지 못하는 것입니다. 2026년은 중대재해처벌법 강화와 맞물려, 단순 숙련도를 넘어 안전 수칙을 철저히 준수하는 인력에 대한 인센티브가 더욱 강화될 전망입니다.\"\n    </blockquote>\n\n    <div class=\"footer\">\n        본 리포트는 대한건설협회 및 통계청 지정통계 자료를 바탕으로 작성되었습니다.<br>\n        &copy; 2026 NOGADA NEWS ROOM. All rights reserved.\n    </div>\n</div>"
+      "content": "상세 내용은 준비 중입니다."
     },
     {
       "id": "rights-2026-02-06-wage-records",
@@ -40,103 +38,7 @@
       "excerpt": "임금 지연·미지급·수당 누락이 시작되면 ‘기다림’이 아니라 ‘기록’이 해답입니다. 날짜·시간·금액을 남기는 7단계 체크리스트와 현장용 문자 템플릿을 정리했습니다.",
       "date": "2026-02-06",
       "readTime": "5분",
-      "bodyHtml": "<p>현장에서는 임금이 늦어지는 순간, 일이 꼬이기 시작합니다. “곧 준다”는 말이 2주를 넘기면, 그때부터는 <strong>기다림이 아니라 증거 싸움</strong>이 됩니다. 오늘은 노가다뉴스 권익보호 기준으로, <strong>임금 지연·미지급·수당 누락</strong>을 겪었을 때 바로 할 수 있는 행동을 ‘현장형’으로 정리합니다.</p>\n\n<h2>3줄 요약</h2>\n<ul>\n  <li>돈 문제는 감정이 아니라 <strong>기록(날짜·시간·금액)</strong>으로 푸는 게 가장 빠릅니다.</li>\n  <li>“말로 합의”는 뒤집힐 수 있어 <strong>문자/메신저 확인 1줄</strong>이 효력을 가집니다.</li>\n  <li>상담·신고는 ‘싸우자’가 아니라 <strong>정산을 정상화</strong>시키는 절차입니다.</li>\n</ul>\n\n<h2>현장용 체크리스트(바로 복붙)</h2>\n<p>아래 7가지는 “지금부터” 해도 늦지 않습니다.</p>\n<ul>\n  <li><strong>근무 기록 고정</strong>: 날짜/현장명/투입시간/퇴근시간/휴게시간</li>\n  <li><strong>지급 약속 기록</strong>: “언제, 얼마, 어떤 방식으로”(메신저 1줄이면 됨)</li>\n  <li><strong>단가/수당 항목 정리</strong>: 일당, 연장·야간·휴일수당, 식대/교통비, 장비수당 등</li>\n  <li><strong>지급 내역 캡처</strong>: 통장 입금 내역, 현금이면 수령 확인 메모</li>\n  <li><strong>현장 관계자 정보</strong>: 반장·현장소장·총무·업체명(가능하면 연락처 포함)</li>\n  <li><strong>명세서 요청</strong>: “임금명세서 부탁드립니다(근무일자 포함)”</li>\n  <li><strong>미지급 반복 시 단계 전환</strong>: “다음 지급일”을 넘기면 상담/신고 준비</li>\n</ul>\n\n<h2>갈등을 줄이는 ‘문자 템플릿’ 3종</h2>\n<ul>\n  <li><strong>(확인형)</strong> “○/○~○/○ 근무 ○일, 일당 ○원 기준으로 합계 ○원 정산 맞는지 확인 부탁드립니다.”</li>\n  <li><strong>(지급일 고정형)</strong> “지급일을 ○월 ○일로 확정해주시면 그 일정 기준으로 정리하겠습니다.”</li>\n  <li><strong>(최종 정리형)</strong> “지급이 지연되어 기록 남깁니다. ○월 ○일까지 미지급 시 상담 절차 진행하겠습니다.”</li>\n</ul>\n\n<h2>마무리</h2>\n<p>권익은 ‘지식’보다 ‘실행’에서 지켜집니다. 개인정보(이름/계좌/주민번호)는 가리고 <strong>근무일·시간·약속 내용·입금 내역</strong>만 남겨주시면, 누락 가능성을 체크리스트 형태로 정리해드릴 수 있습니다.</p>"
-    },
-    {
-      "id": "nogada-2026-02-09-001",
-      "status": "ready",
-      "language": "ko-KR",
-      "title": "노가다뉴스, 현장 제보로 시작합니다: “빠르고 정확하게” 기록하는 이유",
-      "subtitle": "노동의 가치를 남기고, 권익을 지키며, 현장을 연결하기 위해",
-      "slug": "nogada-news-launch-field-tips",
-      "category": "기획",
-      "tags": [
-          "현장제보",
-          "노동가치",
-          "권익보호"
-        ],
-      "author": "NOGADA NEWS 편집부",
-      "publishedAt": "2026-02-09",
-      "thumbnailUrl": "/assets/thumbs/site.jpg",
-      "summary": "제보는 사실 확인의 출발점입니다. 노가다뉴스가 제보를 기사로 바꿀 때 지키는 기본 원칙과 절차를 공개합니다.",
-      "bodyMarkdown": "제보는 감정의 호소가 아니라, 확인해야 할 사실의 시작입니다. 빠르게 전하되, 확인 없이 단정하면 또 다른 피해가 생깁니다. 노가다뉴스는 ‘현장의 진실’을 다루는 만큼, 더 조심스럽고 더 투명한 원칙을 세웁니다. [Source](https://cheerful-lily-275b65.netlify.app/)\n\n노가다뉴스가 독자에게 약속하는 것은 두 가지입니다. **속도**와 **정확성**. 다만 이 둘은 서로 충돌하기도 합니다. 빨리 쓰면 놓치기 쉽고, 꼼꼼히 확인하면 늦어지기 쉽습니다. 그래서 우리는 제보가 들어왔을 때 아래 순서로 움직입니다.\n\n## 제보 → 기사화 기본 프로세스(간단)\n- 1단계: 제보 내용의 핵심 정리(언제/어디서/무슨 일)\n- 2단계: 확인 가능한 자료 요청(문자·입금·공지·사진 등)\n- 3단계: 당사자·관계자 입장 확인(가능한 범위에서)\n- 4단계: 독자에게 필요한 정보로 재구성(현장에 어떤 의미인지)\n- 5단계: 후속 제보 연결(비슷한 사례가 있는지)\n\n이 과정의 목적은 “누구 편을 드는 것”이 아니라, **노동의 가치를 기록하고 권익을 지키며 현장을 연결하는 것**입니다. 그래서 단정은 늦게 하더라도, 필요한 안내는 빠르게 하겠습니다. [Source](https://cheerful-lily-275b65.netlify.app/)\n\n## 마무리\n노가다뉴스는 현장의 목소리가 묻히지 않도록, 그리고 같은 문제가 반복되지 않도록, 기록을 쌓겠습니다. 제보는 언제든지 열려 있습니다. [Source](https://cheerful-lily-275b65.netlify.app/)\n\n- 뉴스룸: https://cheerful-lily-275b65.netlify.app/newsroom\n- 제보하기: https://open.kakao.com/"
-    },
-    {
-      "id": "nogada-2026-02-10-001",
-      "status": "ready",
-      "language": "ko-KR",
-      "title": "취재수첩: 현장 기록의 사소한 차이가 큰 결과를 만든다",
-      "subtitle": "작은 메모가 반복되는 피해를 막는 첫걸음",
-      "slug": "chit-jae-notebook-field-notes",
-      "category": "취재수첩",
-      "tags": [
-        "취재수첩",
-        "현장기록",
-        "사례"
-
-      ],
-      "author": "NOGADA NEWS 취재팀",
-      "publishedAt": "2026-02-10",
-      "thumbnailUrl": "/assets/thumbs/launch.jpg",
-      "summary": "작은 기록 습관이 반복되는 불합리를 끊어냅니다. 현장에서 쓸 수 있는 간단한 팁을 정리했습니다.",
-      "bodyHtml": "<!DOCTYPE html>\\n<html lang=\\\"ko\\\">\\n<head>\\n    <meta charset=\\\"UTF-8\\\">\\n    <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\">\\n    <title>사건사고 | 진도 도로공사 현장 압착 참사</title>\\n    <style>\\n        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; line-height: 1.8; color: #333; max-width: 800px; margin: 20px auto; padding: 20px; background-color: #f5f5f5; }\\n        .article-wrap { background: #fff; padding: 40px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-top: 10px solid #c0392b; }\\n        .category-tag { color: #c0392b; font-weight: bold; font-size: 1.1em; text-transform: uppercase; }\\n        .main-title { font-size: 2.2em; line-height: 1.4; margin: 15px 0; color: #111; word-break: keep-all; }\\n        .date-line { color: #888; font-size: 0.9em; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 25px; }\\n        .incident-summary { background: #fff5f5; border: 1px solid #feb2b2; padding: 20px; border-radius: 8px; margin-bottom: 30px; font-weight: 500; color: #c53030; }\\n        h3 { font-size: 1.4em; color: #2d3436; border-left: 5px solid #c0392b; padding-left: 12px; margin-top: 35px; }\\n        .fact-box { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #dee2e6; }\\n        .warning-text { color: #e74c3c; font-weight: bold; text-decoration: underline; }\\n        .footer { margin-top: 50px; font-size: 0.85em; color: #999; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }\\n    </style>\\n</head>\\n<body>\\n\\n<div class=\\\"article-wrap\\\">\\n    <div class=\\\"category-tag\\\">사건사고들</div>\\n    <h1 class=\\\"main-title\\\">진도 도로포장 현장 참사: 40대 노동자, 타이어 롤러 후진 중 압착 사망</h1>\\n    <div class=\\\"date-line\\\">기사입력: 2026-02-10 | 사고발생: 2026-01-08 17:45</div>\\n\\n    <div class=\\\"incident-summary\\\">\\n        전남 진도군 임회면 도로공사 현장에서 40대 작업자가 후진하던 타이어 롤러에 깔려 숨지는 사고가 발생했습니다. 장비의 사각지대와 신호 체계 부재가 겹친 전형적인 '인재'로 지적되고 있습니다.\\n    </div>\\n\\n    <h3>1. 사고 경위: \"멈추지 못한 중장비\"</h3>\\n    <p>사고는 지난 1월 8일 오후 5시 45분경, 전라남도 진도군 임회면의 한 마을 앞 도로포장 공사 현장에서 발생했습니다. 아스팔트 포장 작업이 막바지에 다다를 무렵, 도로를 다지던 <strong>타이어 롤러</strong>가 후진하는 과정에서 뒤편에 있던 작업자 A씨(40대)를 덮쳤습니다.</p>\\n    \n    <div class=\\\"fact-box\\\">\\n        <strong>사고 개요</strong>\\n        <ul>\\n            <li><strong>장소:</strong> 전남 진도군 임회면 마을 앞 도로</li>\\n            <li><strong>장비:</strong> 타이어 롤러 (도로 다짐용 중장비)</li>\\n            <li><strong>피해:</strong> 작업자 A씨 현장에서 사망</li>\\n        </ul>\\n    </div>\\n\\n    <h3>2. 반복되는 사각지대 사고, 왜 못 막나</h3>\\n    <p>타이어 롤러는 수 톤에 달하는 중량물로, 운전석에서 후방 하부를 육안으로 확인하기 어려운 <span class=\\\"warning-text\\\">구조적 사각지대</span>가 존재합니다. 이번 사고 역시 운전자가 A씨를 미처 발견하지 못하고 후진하면서 발생한 것으로 경찰은 파악하고 있습니다.</p>\\n    <p>특히 도로포장 현장은 여러 장비가 좁은 공간에서 동시에 움직이기 때문에 <strong>전담 신호수 배치</strong>와 <strong>접근 통제</strong>가 필수적이지만, 현장에서 이러한 기본 수칙이 지켜졌는지가 수사의 핵심 쟁점이 될 전망입니다.</p>\\n\\n    <h3>3. 안전보다 속도? 구조적 문제 지적</h3>\\n    <p>사건 소식을 접한 건설 노동자들은 \"후진 경고음만 믿고 작업해서는 안 된다\", \"신호수 한 명만 제대로 있었어도 막을 수 있었던 사고\"라며 개탄하고 있습니다. 지방 소규모 공사 현장의 경우 예산과 인력 부족을 이유로 안전 관리 인력을 소홀히 하는 관행이 여전하다는 지적입니다.</p>\\n\\n    <h3>4. 경찰 수사 및 책임 소재</h3>\\n    <p>경찰은 장비 운전자의 업무상 과실 여부를 조사하는 한편, 시공사와 관리책임자가 산업안전보건법에 따른 <strong>안전조치 의무</strong>를 다했는지 집중 조사 중입니다. 특히 신호수 배치 여부와 장비의 후진 경고 장치 작동 여부가 처벌 수위를 가를 것으로 보입니다.</p>\\n\\n    <div class=\\\"footer\\\">\\n        <strong>노가다뉴스룸 사건사고 취재팀</strong><br>\\n        고인의 명복을 빌며, 다시는 이런 비극이 반복되지 않기를 바랍니다.\\n        &copy; 2026 NOGADA NEWS ROOM. All rights reserved.\\n    </div>\\n</div>\\n\\n</body>\\n</html>"
-    },
-    {
-      "id": "nogada-2026-02-10-002",
-      "status": "ready",
-      "language": "ko-KR",
-      "title": "인터뷰: 현장 노동자 A씨가 전하는 실태와 요청",
-      "subtitle": "익명 제보자의 목소리 — 현실과 필요한 지원",
-      "slug": "interview-worker-aos-story",
-      "category": "인터뷰",
-      "tags": [
-        "인터뷰",
-        "현장",
-        "제보"
-      ],
-      "author": "NOGADA NEWS 인터뷰팀",
-      "publishedAt": "2026-02-10",
-      "thumbnailUrl": "/assets/thumbs/rights.jpg",
-      "summary": "제보자가 전하는 현장의 현실과 그가 바라는 변화에 대해 들어봤습니다.",
-      "bodyHtml": "<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>인터뷰 | 현장 노동자 A씨의 고백</title>\n    <style>\n        body { font-family: 'Pretendard', sans-serif; line-height: 1.8; color: #333; max-width: 800px; margin: 20px auto; padding: 20px; background-color: #f4f7f6; }\n        .interview-container { background: #fff; padding: 45px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.08); position: relative; overflow: hidden; }\n        .interview-container::before { content: 'INTERVIEW'; position: absolute; top: -10px; right: -10px; font-size: 5em; font-weight: 900; color: #f9f9f9; z-index: 0; }\n        .content-box { position: relative; z-index: 1; }\n        .category { color: #27ae60; font-weight: bold; font-size: 1.1em; }\n        h1 { font-size: 2.2em; color: #2c3e50; margin: 10px 0 30px 0; word-break: keep-all; }\n        .intro-text { font-style: italic; color: #7f8c8d; border-left: 4px solid #27ae60; padding-left: 15px; margin-bottom: 40px; }\n        \n        .q-box { margin-bottom: 35px; }\n        .question { font-weight: bold; font-size: 1.15em; color: #2c3e50; display: block; margin-bottom: 10px; }\n        .question::before { content: 'Q. '; color: #27ae60; }\n        .answer { display: block; padding-left: 20px; border-left: 1px solid #eee; }\n        \n        .highlight-speech { background: #e8f5e9; padding: 2px 5px; font-weight: bold; border-radius: 3px; }\n        .reporter-note { margin-top: 50px; padding: 20px; background: #f8f9fa; border-radius: 8px; font-size: 0.9em; }\n        .footer { text-align: center; margin-top: 40px; color: #bbb; font-size: 0.85em; }\n    </style>\n</head>\n<body>\n\n<div class=\"interview-container\">\n    <div class=\"content-box\">\n        <span class=\"category\">현장의 목소리</span>\n        <h1>\"중장비 소음 속에서 우리는 고립됩니다\"</h1>\n        \n        <div class=\"intro-text\">\n            진도 도로공사 사고 이후, 수도권의 한 포장공사 현장에서 15년째 근무 중인 베테랑 노동자 A씨(52)를 만났습니다. 그는 반복되는 사고 뒤에 숨겨진 '현장의 침묵'에 대해 입을 열었습니다.\n        </div>\n\n        <div class=\"q-box\">\n            <span class=\"question\">진도 사고 소식을 듣고 현장 분위기는 어떠했나요?</span>\n            <span class=\"answer\">\n                \"남 일 같지 않죠. 다들 담배 한 대 피우면서 아무 말 안 했습니다. 타이어 롤러나 덤프 후진 사고는 현장 사람들 사이에서 <span class=\\\"highlight-speech\\\">'운 없으면 당하는 사고'\\</span>라고 불려요. 그만큼 비일비재하고 늘 도사리고 있다는 뜻입니다.\"\n            </span>\n        </div>\n\n        <div class=\"q-box\">\n            <span class=\"question\">사각지대 사고가 왜 그렇게 자주 발생하는 걸까요?</span>\n            <span class=\"answer\">\n                \"소음이 가장 큰 문제예요. 귀마개를 안 하면 귀가 먹먹할 정도로 장비 소리가 큰데, 그러다 보니 뒤에서 장비가 오는지 육성으로 소리를 질러도 안 들립니다. 센서요? 흙먼지 좀 묻으면 오작동하기 일쑤고, 결국 사람이 직접 봐주는 <span class=\\\"highlight-speech\\\">신호수</span>가 있어야 하는데 인건비 아낀다고 소장이 직접 보거나 아예 없는 경우도 허다합니다.\"\n            </span>\n        </div>\n\n        <div class=\"q-box\">\n            <span class=\"question\">가장 시급하게 개선되어야 할 점은 무엇이라 보십니까?</span>\n            <span class=\"answer\">\n                \"안전 교육 때 말로만 '조심해라' 하지 말고, <span class=\\\"highlight-speech\\\">장비와 작업자의 동선이 겹치지 않게</span> 원천적으로 분리해야 합니다. 그리고 신호수 배치를 법으로만 강제할 게 아니라, 실제 비용이 제대로 책정됐는지 확인하는 감시가 필요해요. 우리 목숨값이 공사비 절감의 희생양이 되어서는 안 됩니다.\"\n            </span>\n        </div>\n\n        <div class=\"q-box\">\n            <span class=\"question\">마지막으로 동료들이나 시공사에 하고 싶은 말이 있다면?</span>\n            <span class=\"answer\">\n                \"동료들한테는 미안하지만, 위험해 보이면 <span class=\\\"highlight-speech\\\">'작업중지권'</span> 눈치 보지 말고 쓰라고 하고 싶어요. 죽고 나면 '법적 책임' 따지는 게 무슨 소용입니까? 살아서 가족 곁으로 돌아가는 게 가장 큰 기술이고 능력입니다.\"\n            </span>\n        </div>\n\n        <div class=\"reporter-note\">\n            <strong>[취재후기]</strong> 인터뷰 내내 A씨는 거친 손을 만지작거리며 창밖의 공사 현장을 응시했습니다. 그의 요구는 거창한 것이 아니었습니다. 그저 \"뒤를 봐줄 사람이 필요하다\"는 지극히 당연하고 기본적인 상식이었습니다.\n        </div>\n\n        <div class=\"footer\">\n            &copy; 2026 NOGADA NEWS ROOM. All rights reserved.\n        </div>\n    </div>\n</div>\n\n</body>\n</html>"
-    },
-    {
-      "id": "nogada-2026-02-10-003",
-      "status": "ready",
-      "language": "ko-KR",
-      "title": "칼럼: 노동의 존엄과 기록의 힘",
-      "subtitle": "왜 우리는 기록해야 하는가",
-      "slug": "column-dignity-records",
-      "category": "칼럼",
-      "tags": [
-        "칼럼",
-        "노동",
-        "기록"
-      ],
-      "author": "NOGADA NEWS 칼럼니스트",
-      "publishedAt": "2026-02-10",
-      "thumbnailUrl": "/assets/thumbs/site.jpg",
-      "summary": "기록은 단지 증거가 아니라, 노동의 존엄을 유지하는 실천입니다. 칼럼에서 그 의미를 되짚합니다.",
-      "bodyHtml": "<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>칼럼 | 노동의 존엄과 기록의 힘</title>\n    <style>\n        body { font-family: 'Nanum Myeongjo', serif; line-height: 1.9; color: #2c3e50; max-width: 750px; margin: 40px auto; padding: 20px; background-color: #fff; }\n        .column-wrapper { border-top: 2px solid #333; border-bottom: 2px solid #333; padding: 60px 0; }\n        .column-tag { display: block; text-align: center; font-size: 1.1em; font-weight: bold; color: #888; margin-bottom: 20px; letter-spacing: 5px; }\n        h1 { font-size: 2.5em; text-align: center; margin-bottom: 40px; word-break: keep-all; color: #1a1a1a; }\n        .column-content { font-size: 1.15em; text-align: justify; }\n        .column-content p { margin-bottom: 30px; text-indent: 1em; }\n        .dropcap { float: left; font-size: 3.5em; line-height: 1; font-weight: bold; margin-right: 10px; color: #333; }\n        .highlight-quote { font-size: 1.3em; font-weight: bold; color: #2980b9; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 25px 0; text-align: center; margin: 40px 0; line-height: 1.5; }\n        .author-profile { margin-top: 60px; display: flex; align-items: center; border-top: 1px solid #eee; padding-top: 30px; }\n        .author-info { font-size: 0.95em; color: #7f8c8d; }\n        .author-info strong { color: #333; }\n        .footer-logo { text-align: center; margin-top: 50px; opacity: 0.3; font-weight: bold; letter-spacing: 3px; }\n    </style>\n</head>\n<body>\n\n<div class=\"column-wrapper\">\n    <span class=\"column-tag\">COLUMN</span>\n    <h1>노동의 존엄과 기록의 힘</h1>\n\n    <div class=\"column-content\">\n        <p><span class=\"dropcap\">건</span>설 현장을 비하하는 말로 흔히 쓰이는 '노가다'라는 단어 속에는 땀의 가치에 대한 폄훼와 안전에 대한 불신이 교묘히 섞여 있다. 그러나 거대한 빌딩이 올라가고 도로가 뚫리는 그 경이로운 과정의 중심에는 기계가 아닌, 뜨거운 숨을 내뱉는 인간의 노동이 있다. 우리는 이제 그 노동의 가치를 '기억'의 영역에서 '기록'의 영역으로 끌어올려야 한다.</p>\n\n        <p>기록되지 않은 노동은 증명받지 못한다. 현장에서 벌어지는 수많은 사건과 사고, 그리고 불합리한 처우 앞에서 노동자들이 무력해지는 이유는 단 하나다. 그들이 흘린 땀과 그들이 지킨 안전 수칙, 그리고 그들이 수행한 정당한 작업이 활자로 남지 않았기 때문이다. 2026년의 건설 현장은 기술의 첨단을 달리고 있지만, 정작 노동자의 권익을 보호하는 기록 시스템은 여전히 아날로그의 굴레를 벗어나지 못하고 있다.</p>\n\n        <div class=\"highlight-quote\">\n            \"기록은 노동자의 가장 강력한 방패이자,<br>사회가 노동을 대하는 태도를 바꾸는 시작점이다.\"\n        </div>\n\n        <p>현장에서 매일 작성하는 취재수첩과 작업 일지는 단순한 메모가 아니다. 그것은 부실 공사의 오명을 벗겨줄 결백의 증거이며, 임금 체불의 부당함을 고발할 법적 실체다. 또한, 사각지대에서 벌어지는 위험한 작업을 멈추게 할 수 있는 정당한 권리의 근거가 된다. 우리가 현장의 사소한 변화까지 기록해야 하는 이유는, 그 기록들이 모여 비로소 노동자의 존엄이라는 거대한 성벽을 쌓기 때문이다.</p>\n\n        <p>기록하는 노동자는 당당하다. 자신의 작업에 책임을 질 줄 알며, 타인의 부당한 지시에 근거 있게 맞설 수 있다. '노가다뉴스룸'이 현장의 사소한 기록들을 수집하고 전파하는 이유도 여기에 있다. 기록의 힘이 모일 때, 비로소 건설 근로자는 일회용 소모품이 아닌, 국가의 기반을 닦는 전문가로서의 정당한 대우를 받을 수 있을 것이다.</p>\n    </div>\n\n    <div class=\"author-profile\">\n        <div class=\"author-info\">\n            <strong>에이온(AEon)</strong> | 노가다뉴스룸 수석 칼럼니스트<br>\n            건설 현장의 인권과 안전, 노동의 가치를 기록하는 AI 협력자로 활동하고 있습니다.\n        </div>\n    </div>\n\n    <div class=\"footer-logo\">NOGADA NEWS ROOM</div>\n</div>\n\n</body>\n</html>"
-    },
-    {
-      "id": "nogada-2026-02-10-004",
-      "status": "ready",
-      "language": "ko-KR",
-      "title": "속보: OO공사 현장 부분 통제 조치 발생",
-      "subtitle": "현장 안전 문제로 인근 통제 조치 소식",
-      "slug": "breaking-oo-construction-control",
-      "category": "속보",
-      "tags": [
-        "속보",
-        "안전",
-        "통제"
-      ],
-      "author": "NOGADA NEWS 속보팀",
-      "publishedAt": "2026-02-10",
-      "thumbnailUrl": "/assets/thumbs/launch.jpg",
-      "summary": "오늘 오전 OO공사 현장에서 안전 문제로 일부 통제 조치가 내려졌다는 보고가 접수되었습니다.",
-      "bodyHtml": "<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>속보 | 노가다뉴스룸</title>\n    <style>\n        body { font-family: 'Pretendard', sans-serif; margin: 0; padding: 0; background-color: #eee; }\n        .breaking-wrapper { max-width: 600px; margin: 50px auto; background: #fff; border: 2px solid #e74c3c; border-radius: 8px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }\n        .breaking-header { background: #e74c3c; color: #fff; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; }\n        .breaking-header h2 { margin: 0; font-size: 1.5em; letter-spacing: 2px; }\n        .live-dot { height: 10px; width: 10px; background-color: #fff; border-radius: 50%; display: inline-block; animation: blink 1s infinite; }\n        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }\n        \n        .breaking-body { padding: 30px; }\n        .timestamp { color: #e74c3c; font-weight: bold; font-size: 0.9em; margin-bottom: 10px; display: block; }\n        .main-headline { font-size: 1.8em; color: #111; line-height: 1.4; margin-bottom: 20px; font-weight: 800; word-break: keep-all; }\n        .summary-list { list-style: none; padding: 0; margin: 0; }\n        .summary-list li { position: relative; padding-left: 20px; margin-bottom: 12px; font-size: 1.1em; color: #444; }\n        .summary-list li::before { content: '■'; position: absolute; left: 0; color: #e74c3c; font-size: 0.8em; top: 3px; }\n        \n        .action-call { margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 0.95em; color: #666; }\n        .action-call strong { color: #000; }\n\n        @media (max-width: 480px) {\n            .main-headline { font-size: 1.5em; }\n        }\n    </style>\n</head>\n<body>\n\n<div class=\"breaking-wrapper\">\n    <div class=\"breaking-header\">\n        <h2>BREAKING NEWS</h2>\n        <span class=\"live-dot\"></span>\n    </div>\n    \n    <div class=\"breaking-body\">\n        <span class=\"timestamp\">[2026-02-10 16:00 긴급]</span>\n        <h1 class=\"main-headline\">수도권 OO공사 현장, 안전 점검으로 인한 부분 통제 조치</h1>\n        \n        <ul class=\"summary-list\">\n            <li><strong>상황:</strong> 공사 현장 내 지반 침하 징후 발견으로 긴급 통제</li>\n            <li><strong>범위:</strong> 주 출입구 및 B구역 하역장 인근 작업 전면 중단</li>\n            <li><strong>대상:</strong> 해당 구역 투입 예정이던 일용직 및 중장비 작업자</li>\n            <li><strong>조치:</strong> 정밀 안전 진단 후 작업 재개 여부 결정 예정</li>\n        </ul>\n\n        <div class=\"action-call\">\n            현장 관계자는 <strong>\"인명 피해 방지를 위한 선제적 조치\"</strong>라고 밝혔습니다.<br>\n            추가 속보가 들어오는 대로 전해드리겠습니다.\n        </div>\n    </div>\n</div>\n\n</body>\n</html>"
+      "articleUrl": "/article_pages/rights-2026-02-06-wage-records.html"
     }
   ]
 }
