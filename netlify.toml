@@ -1,10 +1,9 @@
 [build]
-  # Publish the project root so Netlify serves the existing static HTML files.
-  # Change this if you have a build step that outputs to a different folder.
-  publish = "."
-  # No build command required for static site in repository. Set a command
-  # (e.g., "npm run build") if you add a build step that generates output.
-  command = ""
+  # Publish the generated `nogadanews_publish` directory so Netlify serves
+  # the site output created by the build script below.
+  publish = "nogadanews_publish"
+  # Run the npm build script to create the publish directory during build.
+  command = "npm run build"
 
 [context.production.environment]
   # Example: pin Node version if any build steps rely on node
