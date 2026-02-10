@@ -164,10 +164,22 @@
         setText("aDate", item.date || "—");
         setText("aRead", item.readTime ? ("읽는 시간 " + item.readTime) : "읽는 시간 —");
 
-        // 본문: 다양한 파이프라인에서 `bodyHtml` 또는 `content`/`body` 필드가 올 수 있으므로
+        // 본문: articleUrl을 우선 사용하도록 변경. 외부 HTML이 있으면 body 내용을 추출하여 삽입합니다.
         const body = document.getElementById("aBody");
-        const rawBody = item.bodyHtml || item.body || item.content || "<p>본문이 준비중입니다.</p>";
-        body.innerHTML = sanitizeBodyHtml(rawBody);
+        async function loadBody(item){
+          if(item.articleUrl){
+            try{
+              const r = await fetch(item.articleUrl, {cache:'no-store'});
+              if(r.ok){
+                const txt = await r.text();
+                const m = txt.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+                return m ? m[1] : txt;
+              }
+            }catch(e){ console.warn('failed to fetch articleUrl', e); }
+          }
+          return item.bodyHtml || item.body || item.content || "<p>본문이 준비중입니다.</p>";
+        }
+        loadBody(item).then(html=>{ body.innerHTML = sanitizeBodyHtml(html); });
 
         // 제목/OG 업데이트(간단 버전)
         document.title = (item.title ? (item.title + " | 노가다뉴스") : "기사 | 노가다뉴스");
