@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속보 | 노가다뉴스룸</title>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; margin: 0; padding: 0; background-color: #eee; }
+        .breaking-wrapper { max-width: 600px; margin: 50px auto; background: #fff; border: 2px solid #e74c3c; border-radius: 8px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        .breaking-header { background: #e74c3c; color: #fff; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; }
+        .breaking-header h2 { margin: 0; font-size: 1.5em; letter-spacing: 2px; }
+        .live-dot { height: 10px; width: 10px; background-color: #fff; border-radius: 50%; display: inline-block; animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        .breaking-body { padding: 30px; }
+        .timestamp { color: #e74c3c; font-weight: bold; font-size: 0.9em; margin-bottom: 10px; display: block; }
+        .main-headline { font-size: 1.8em; color: #111; line-height: 1.4; margin-bottom: 20px; font-weight: 800; word-break: keep-all; }
+        .summary-list { list-style: none; padding: 0; margin: 0; }
+        .summary-list li { position: relative; padding-left: 20px; margin-bottom: 12px; font-size: 1.1em; color: #444; }
+        .summary-list li::before { content: '■'; position: absolute; left: 0; color: #e74c3c; font-size: 0.8em; top: 3px; }
+        .action-call { margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; font-size: 0.95em; color: #666; }
+        .action-call strong { color: #000; }
+        @media (max-width: 480px) { .main-headline { font-size: 1.5em; } }
+    </style>
+</head>
+<body>
+
+<div class="breaking-wrapper">
+    <div class="breaking-header">
+        <h2>BREAKING NEWS</h2>
+        <span class="live-dot"></span>
+    </div>
+    
+    <div class="breaking-body">
+        <span class="timestamp">[2026-02-10 16:00 긴급]</span>
+        <h1 class="main-headline">수도권 OO공사 현장, 안전 점검으로 인한 부분 통제 조치</h1>
+        
+        <ul class="summary-list">
+            <li><strong>상황:</strong> 공사 현장 내 지반 침하 징후 발견으로 긴급 통제</li>
+            <li><strong>범위:</strong> 주 출입구 및 B구역 하역장 인근 작업 전면 중단</li>
+            <li><strong>대상:</strong> 해당 구역 투입 예정이던 일용직 및 중장비 작업자</li>
+            <li><strong>조치:</strong> 정밀 안전 진단 후 작업 재개 여부 결정 예정</li>
+        </ul>
+
+        <div class="action-call">
+            현장 관계자는 <strong>"인명 피해 방지를 위한 선제적 조치"</strong>라고 밝혔습니다.<br>
+            추가 속보가 들어오는 대로 전해드리겠습니다.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
